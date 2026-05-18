@@ -30,40 +30,41 @@ function modifyContent() {
     mainOuijaPage.innerHTML = `
       <header id="rules" class="rules">
         <div class="ouija-timer"></div>
-          <h1 class="ouija-title">We Speak</h1>
+          <h1 class="ouija-title">We Speak:</h1>
             <ul class="ouija-rule-main">
               <li class="ouija-rules">Rule 1: Beat the clock</li>
-              <li class="ouija-rules">Rule 2: Find the glass</li>
+              <li class="ouija-rules">Rule 2: Find the Planchette</li>
               <li class="ouija-rules">Rule 3: Solve the riddles</li>
-              <li class="ouija-rules">Rule 4: Answer the riddle using the glass</li>
+              <li class="ouija-rules">Rule 4: Answer the riddle using the Planchette</li>
               <li class="ouija-rules">Rule 5: Hello to submit, Good-Bye to restart</li>
             </ul>
-      </header>
+        <div class="ouija-riddle-build">
+          <div class="riddle-question">Riddle Questions Here</div>
+          <div class="riddle-answer">Riddle Answered Here</div>
+          </div>
+          </header>
+          <button id="startBttn" type="button">Start</button>
       <div id="ouija-build">
       <div id="planchette-glass"></div>
         <div class="ouija-board-build">
           <div class="board-image">
-            <div>
-              <div id="ouija-yes-no" type="button" onclick="alert('Clicked!')" style="display: flex; gap:300px; justify-content: center; align-items: center;"></div>
+            <main>
+              <div id="ouija-yes-no" type="button" style="display: flex; font-size: 70px; gap:300px; justify-content: center; align-items: center; margin-top: 10px; margin-right: 35px; margin-bottom: 20px;"></div>
               <br>
-              <div id="ouija-a-m" type="button" onclick="alert('Clicked!')" style="display: flex; gap:50px; justify-content: center; align-items: center;"></div>
+              <div id="ouija-a-m" type="button" style="display: flex; font-size: 50px; gap:50px; justify-content: center; align-items: center;"></div>
               <br>
-              <div id="ouija-n-z" type="button" onclick="alert('Clicked!')" style="display: flex; gap:50px; justify-content: center; align-items: center;"></div>
+              <div id="ouija-n-z" type="button" style="display: flex; font-size: 50px; gap:50px; justify-content: center; align-items: center;"></div>
               <br>
-              <div id="ouija-1-0" type="button" onclick="alert('Clicked!')" style="display: flex; gap:50px; justify-content: center; align-items: center;"></div>
+              <div id="ouija-1-0" type="button" style="display: flex; font-size: 50px; gap:50px; justify-content: center; align-items: center;"></div>
               <br>
-              <div id="ouija-sal" type="button" onclick="alert('Clicked!')" style="display: flex; gap:250px; justify-content: center; align-items: center;"></div>
+              <div id="ouija-sal" type="button" style="display: flex; gap:250px; font-size: 70px; justify-content: center; align-items: center; margin-left: 85px;"></div>
               <br>
-            </div>
+            </main>
           </div>
         </div>
         <div class="planchette-wrapper" draggable="true">
           </div>
-        <div class="ouija-riddle-build">
-          <div class="riddle-question">Riddle Questions Here</div>
-          <div class="riddle-answer">Riddle Answered Here</div>
-          <button id="startBttn" type="button">Start</button>
-        </div>
+        
       </div>
       `
       // Ouija main game play functionaltiy. 
@@ -93,53 +94,54 @@ function modifyContent() {
 
     let agreeDiv = "";
     for (const agree of yesNo) {
-      console.log(agree);
-
     ouijaChoice.innerHTML = agreeDiv += `<div class="ouija-board-agree">${agree}</div>`
     };
 
 
     let alpha1Div = "";
     for (const letterAM of AToM) {
-      console.log(letterAM);
-
     ouijaAM.innerHTML =  alpha1Div += `<div class="ouija-board-alpha1Div">${letterAM}</div>`
     };
     
 
     let alpha2Div = "";
     for (const letterNZ of NToZ) {
-      console.log(letterNZ);
-
     ouijaNZ.innerHTML = alpha2Div += `<div class="ouija-board-alpha2Div">${letterNZ}</div>`
     };
     
 
     let numbersDiv = "";
     for (const count of boardNum) {
-      console.log(count);
-
     ouijaNum.innerHTML = numbersDiv += `<div class="ouija-board-numbersDiv">${count}</div>`
     };
 
 
     let saluDiv = "";
     for (const regard of helloGoodbye) {
-      console.log(regard);
-
     ouijaSalutation.innerHTML = saluDiv += `<div class="ouija-board-salutationP">${regard}</div>`
     };
 
     // Ouija buttons functionality
     
-    ouijaChoice.addEventListener('click', () => {
-      riddleAnswered.style.display = 'block';
+    ouijaChoice.addEventListener('click', (event) => {
+      riddleAnswered.innerText = event.target.textContent;
     });
 
-    ouijaAM.addEventListener('click', () => {
-      riddleAnswered.style.display = 'block';
+    ouijaAM.addEventListener('click', (event) => {
+      riddleAnswered.innerText = event.target.textContent;
     });
-   
+    
+    ouijaNZ.addEventListener('click', (event) => {
+      riddleAnswered.innerText = event.target.textContent;
+    });
+
+    ouijaNum.addEventListener('click', (event) => {
+      riddleAnswered.innerText = event.target.textContent;
+    });
+
+    ouijaSalutation.addEventListener('click', (event) => {
+      riddleAnswered.innerText = event.target.textContent;
+    });
 
 
       // Ouija timer section. Freezes page once time runs out.
@@ -174,38 +176,24 @@ function modifyContent() {
 
       
         //Planchette mouser
-          const pointerImg = document.querySelector('.planchette-cursor');
+      const pointerImg = document.querySelector('.planchette-cursor');
 
-            window.addEventListener('mousemove', e => {
-                // Adjust -25 to center the image based on its size
-                pointerImg.style.left = e.pageX - 25 + 'px';
-                pointerImg.style.top = e.pageY - 25 + 'px';
-            });
+        window.addEventListener('mousemove', e => {
+            // Adjust -25 to center the image based on its size
+            pointerImg.style.left = e.pageX - 25 + 'px';
+            pointerImg.style.top = e.pageY - 25 + 'px';
+        });
       
       const style = document.createElement("style");
       style.innerHTML = `
-        *{
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-
         
         @media screen and (width <= 750px) {
-            .ouija-board-build { width: 100% }
-            .board-image { width: 100%; }
-            .ouija-yes-no { width: 75%; }
-            .ouija-a-m { width: 75%; }
-            .ouija-n-z { width: 75%; }
-            .ouija-1-0 { width: 75%; }
-            .ouija-sal { width: 75%; }
-
+            .ouija-board-build { max-width: 100%; height: auto; }
         }
 
-        @media screen and (width >= 600px) {
+        @media (width >= 600px) {
             body { font-size: 14px }
-
-
+            .board-image { max-width: 100%; height: auto; }
         }
 
       `;
