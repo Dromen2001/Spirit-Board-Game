@@ -1,6 +1,8 @@
 function modifyContent() {
   const mainOuijaPage = document.getElementById('main-ouija-page');
 
+
+
   // Ouija number and letters array
 
   const yesNo = [
@@ -16,12 +18,13 @@ function modifyContent() {
   ];
 
   const boardNum = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 0,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '_',
   ];
 
   const helloGoodbye = [
     'Hello', 'Good-Bye',
   ];
+
 
    
 
@@ -29,7 +32,7 @@ function modifyContent() {
 
     mainOuijaPage.innerHTML = `
       <header id="rules" class="rules">
-        <div class="ouija-timer"></div>
+        <div class="ouija-timer" style="font-size: 35px;"></div>
           <h1 class="ouija-title">We Speak:</h1>
             <ul class="ouija-rule-main">
               <li class="ouija-rules">Rule 1: Beat the clock</li>
@@ -40,33 +43,34 @@ function modifyContent() {
             </ul>
         <div class="ouija-riddle-build">
           <div class="riddle-question">Riddle Questions Here</div>
-          <div class="riddle-answer">Riddle Answered Here</div>
           </div>
           </header>
-          <button id="startBttn" type="button">Start</button>
+          <button id="start-bttn" type="button">Start</button>
       <div id="ouija-build">
       <div id="planchette-glass"></div>
         <div class="ouija-board-build">
           <div class="board-image">
             <main>
-              <div id="ouija-yes-no" type="button" style="display: flex; font-size: 70px; gap:300px; justify-content: center; align-items: center; margin-top: 10px; margin-right: 35px; margin-bottom: 20px;"></div>
+              <div id="ouija-yes-no" type="button" style="display: flex; font-size: 70px; gap:300px; justify-content: center; align-items: center; margin-top: 20px; margin-right: 35px; margin-bottom: 15px;"></div>
               <br>
-              <div id="ouija-a-m" type="button" style="display: flex; font-size: 50px; gap:50px; justify-content: center; align-items: center;"></div>
+              <div id="ouija-a-m" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
               <br>
-              <div id="ouija-n-z" type="button" style="display: flex; font-size: 50px; gap:50px; justify-content: center; align-items: center;"></div>
+              <div id="ouija-n-z" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
               <br>
-              <div id="ouija-1-0" type="button" style="display: flex; font-size: 50px; gap:50px; justify-content: center; align-items: center;"></div>
+              <div id="ouija-1-0" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
               <br>
-              <div id="ouija-sal" type="button" style="display: flex; gap:250px; font-size: 70px; justify-content: center; align-items: center; margin-left: 85px;"></div>
+              <div id="ouija-sal" type="button" style="display: flex; gap:250px; font-size: 60px; justify-content: center; align-items: center; margin-left: 85px;"></div>
               <br>
+              <div class="riddle-answer"></div>
             </main>
           </div>
         </div>
         <div class="planchette-wrapper" draggable="true">
-          </div>
-        
+        </div>
       </div>
-      `
+      `;
+  
+  
       // Ouija main game play functionaltiy. 
     
     const ouijaTimer = document.querySelector('.ouija-timer');
@@ -88,8 +92,10 @@ function modifyContent() {
     const ouijaRiddleBuild = document.querySelector('.ouija-riddle-build');
     const riddleQuestion = document.querySelector('.riddle-question');
     const riddleAnswered = document.querySelector('.riddle-answer');
-    const startBttn = document.getElementById('startBttn');
+    const startBttn = document.getElementById('start-bttn');
 
+
+    
     // Ouija Board game placement
 
     let agreeDiv = "";
@@ -121,26 +127,27 @@ function modifyContent() {
     ouijaSalutation.innerHTML = saluDiv += `<div class="ouija-board-salutationP">${regard}</div>`
     };
 
+
     // Ouija buttons functionality
     
-    ouijaChoice.addEventListener('click', (event) => {
-      riddleAnswered.innerText = event.target.textContent;
+    ouijaChoice.addEventListener('click', (e) => {
+      riddleAnswered.innerText += e.target.textContent;
     });
 
-    ouijaAM.addEventListener('click', (event) => {
-      riddleAnswered.innerText = event.target.textContent;
+    ouijaAM.addEventListener('click', (e) => {
+      riddleAnswered.innerText += e.target.textContent;
     });
     
-    ouijaNZ.addEventListener('click', (event) => {
-      riddleAnswered.innerText = event.target.textContent;
+    ouijaNZ.addEventListener('click', (e) => {
+      riddleAnswered.innerText += e.target.textContent;
     });
 
-    ouijaNum.addEventListener('click', (event) => {
-      riddleAnswered.innerText = event.target.textContent;
+    ouijaNum.addEventListener('click', (e) => {
+      riddleAnswered.innerText += e.target.textContent;
     });
 
-    ouijaSalutation.addEventListener('click', (event) => {
-      riddleAnswered.innerText = event.target.textContent;
+    ouijaSalutation.addEventListener('click', (e) => {
+      riddleAnswered.innerText += e.target.textContent;
     });
 
 

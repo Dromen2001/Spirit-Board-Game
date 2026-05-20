@@ -27,7 +27,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(1, 111, 207, 0.62);
+    color: rgba(215, 240, 255, 0.708);
+     background-image: linear-gradient(to bottom, #016fcfae 30%, #016fcf04 60%);
 }
 
 .ouija-rule-main, li {
@@ -38,6 +39,8 @@ body {
     align-items: center;
     font-size: 30px;
 }
+
+
 
 .planchette-cursor {
     width: 95px; /* Adjust size */
@@ -75,6 +78,15 @@ body {
     font-size: 40px;
 }
 
+#start-bttn {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 30px;
+    background-color: #016fcfae;
+    color: rgba(215, 240, 255, 0.708);
+}
+
 .ouija-riddle-build{
     display: flex;
     flex-direction: column;
@@ -90,7 +102,10 @@ body {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    font-size: 85px;
+    margin-left: 15px;
+    color: #457c22ef; 
+    -webkit-text-stroke: 1.70px black;
+    font-size: 65px;
 }
 
 
