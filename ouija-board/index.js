@@ -181,6 +181,7 @@ function modifyContent() {
       nextRiddle = nextRiddle + 1;
     };
 
+    
     let answering = 0;
 
     ouijaSalutation.addEventListener('click', (e) => {
