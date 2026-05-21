@@ -37,6 +37,10 @@ function modifyContent() {
       riddle: 'I do not have eyes, but once I did see. Once I had thoughts, but now I am white and empty. What am I?',
       answer: 'SKULL',
     },
+    {
+      riddle: 'I have no voice, but I speak every language. I have no eyes, but I will show you your deepest fears and fondest memories. The closer you get to me, the more I demand, yet you cannot touch me. What am I?',
+      answer: 'A_MIRROR',
+    },
   ];
 
 
