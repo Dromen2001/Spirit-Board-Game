@@ -57,6 +57,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    pointer-events: none;
     height: auto;
     max-width: 100%;
     display: flex;
@@ -64,6 +65,10 @@ body {
     justify-content: center;
     align-items: center;
     
+}
+
+.ouija-board-build .ouija-function{
+    pointer-events: auto;
 }
 
 .board-image {

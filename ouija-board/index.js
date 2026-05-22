@@ -31,15 +31,15 @@ function modifyContent() {
   const theRiddles = [
     {
       riddle: 'I wear a dusty, faded victorian dress. My house is a chaotic, broken mess. I watch from the window but never go out, I am the reason the servants shout! What am I?',
-      answer: 'GHOST',
+      answers: 'GHOST',
     },
     {
       riddle: 'I do not have eyes, but once I did see. Once I had thoughts, but now I am white and empty. What am I?',
-      answer: 'SKULL',
+      answers: 'SKULL',
     },
     {
       riddle: 'I have no voice, but I speak every language. I have no eyes, but I will show you your deepest fears and fondest memories. The closer you get to me, the more I demand, yet you cannot touch me. What am I?',
-      answer: 'A_MIRROR',
+      answers: 'A_MIRROR',
     },
   ];
 
@@ -71,15 +71,15 @@ function modifyContent() {
         <div class="ouija-board-build">
           <div class="board-image">
             <main>
-              <div id="ouija-yes-no" type="button" style="display: flex; font-size: 70px; gap:300px; justify-content: center; align-items: center; margin-top: 20px; margin-right: 35px; margin-bottom: 15px;"></div>
+              <div class="ouija-function" id="ouija-yes-no" type="button" style="display: flex; font-size: 70px; gap:300px; justify-content: center; align-items: center; margin-top: 20px; margin-right: 35px; margin-bottom: 15px;"></div>
               <br>
-              <div id="ouija-a-m" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
+              <div class="ouija-function" id="ouija-a-m" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
               <br>
-              <div id="ouija-n-z" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
+              <div class="ouija-function" id="ouija-n-z" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
               <br>
-              <div id="ouija-1-0" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
+              <div class="ouija-function" id="ouija-1-0" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
               <br>
-              <div id="ouija-sal" type="button" style="display: flex; gap:250px; font-size: 60px; justify-content: center; align-items: center; margin-left: 85px;"></div>
+              <div class="ouija-function" id="ouija-sal" type="button" style="display: flex; gap:250px; font-size: 60px; justify-content: center; align-items: center; margin-left: 85px;"></div>
               <br>
               <div class="riddle-answer"></div>
             </main>
@@ -88,8 +88,6 @@ function modifyContent() {
         <div class="planchette-wrapper" draggable="true">
         </div>
       </div>
-      <section></section>
-      <section></section>
     `;
   
 
@@ -125,25 +123,25 @@ function modifyContent() {
 
     let agreeDiv = "";
     for (const agree of yesNo) {
-    ouijaChoice.innerHTML = agreeDiv += `<div class="ouija-board-agree">${agree}</div>`
+    ouijaChoice.innerHTML = agreeDiv += `<div class="ouija-board-agree">${agree}</div>`;
     };
 
 
     let alpha1Div = "";
     for (const letterAM of AToM) {
-    ouijaAM.innerHTML =  alpha1Div += `<div class="ouija-board-alpha1Div">${letterAM}</div>`
+    ouijaAM.innerHTML =  alpha1Div += `<div class="ouija-board-alpha1Div">${letterAM}</div>`;
     };
     
 
     let alpha2Div = "";
     for (const letterNZ of NToZ) {
-    ouijaNZ.innerHTML = alpha2Div += `<div class="ouija-board-alpha2Div">${letterNZ}</div>`
+    ouijaNZ.innerHTML = alpha2Div += `<div class="ouija-board-alpha2Div">${letterNZ}</div>`;
     };
     
 
     let numbersDiv = "";
     for (const count of boardNum) {
-    ouijaNum.innerHTML = numbersDiv += `<div class="ouija-board-numbersDiv">${count}</div>`
+    ouijaNum.innerHTML = numbersDiv += `<div class="ouija-board-numbersDiv">${count}</div>`;
     };
 
 
@@ -152,13 +150,13 @@ function modifyContent() {
     ouijaSalutation.innerHTML = saluDiv += `<div class="ouija-board-salutationP">${regard}</div>`
     };
 
-
+    // const boardChoice = document.querySelector('.ouija-board-agree')
 
 
     // Ouija buttons functionality
-    
+
     ouijaChoice.addEventListener('click', (e) => {
-      riddleAnswered.innerText += e.target.textContent;
+        riddleAnswered.innerText += e.target.textContent;
     });
 
     ouijaAM.addEventListener('click', (e) => {
@@ -190,13 +188,14 @@ function modifyContent() {
 
     ouijaSalutation.addEventListener('click', (e) => {
       if (e.target.textContent !== 'Good-Bye'){
-        if (riddleAnswered.textContent === theRiddles[answering].answer) {
-          riddling();
-          riddleAnswered.textContent = '';
-          riddleAnswered.focus();
-        } else {
-          riddleAnswered.innerText = 'Wrong Answer!';
-        }
+          if (riddleAnswered.textContent === theRiddles[answering].answers) {
+              riddling();
+              riddleAnswered.textContent = '';
+              riddleAnswered.focus();
+              answering = answering + 1;
+            } else {
+              riddleAnswered.innerText = 'Wrong Answer!';
+            }
       } else {
         riddleAnswered.textContent = '';
         riddleAnswered.focus();
@@ -206,13 +205,11 @@ function modifyContent() {
 
 
 
-
       // Ouija timer section. Beings game and freezes page once time runs out.
 
      startBttn.addEventListener('click', () => {
       riddleQuestion.removeAttribute('hidden');
       riddling();
-
 
        let seconds_left = 60;
 
