@@ -43,9 +43,9 @@ body {
 
 
 .planchette-cursor {
-    width: 95px; /* Adjust size */
-    height: 120px;
-    background-image: url('images/planchette5.png');
+    width: 145px; /* Adjust size */
+    height: 175px;
+    background-image: url('images/derezplanch.png');
     background-size: cover;
     position: absolute;
     pointer-events: none; /* Ensure it doesn't interfere with clicks */

@@ -38,10 +38,95 @@ function modifyContent() {
       answers: 'SKULL',
     },
     {
-      riddle: 'I have no voice, but I speak every language. I have no eyes, but I will show you your deepest fears and fondest memories. The closer you get to me, the more I demand, yet you cannot touch me. What am I?',
-      answers: 'A_MIRROR',
+      riddle: 'I\’m the final framework for a fleeting art, with a permanent grin but no beating heart. What am I?',
+      answers: 'SKELETON',
+    },
+    {
+      riddle: 'I am the shell the specter shed, and the feast on which the ghouls are fed. What am I?',
+      answers: 'BODY',
+    },
+    {
+      riddle: 'I am right behind you and creep on the ground. I follow you everywhere, yet I cannot make a single sound. If you turn on the light, I will abandon you immediately. What am I?',
+      answers: 'SHADOW',
+    },
+    {
+      riddle: 'My future is scraped from my insides to clear the way, For a brief, bright soul to hold darkness at bay. What am I?',
+      answers: 'PUMPKIN',
+    },
+    {
+      riddle: 'I\’m a ghost of a whisper, a phantom you keep, Speak of me once and I\’m buried six feet deep. What am I?',
+      answers: 'SECRET',
+    },
+    {
+      riddle: 'I wear a face but have no soul to fright, And swallow strangers whole on horror\’s night. What am I?',
+      answers: 'HOUSE',
+    },
+    {
+      riddle: 'I am a door through which all footsteps fall, A final silence that will answer every call. What am I?',
+      answers: 'DEATH',
     },
   ];
+
+
+
+  const trivia = [
+    {
+      triviaQuestion: 'How many times was Tony Todd stung by bees while making Candyman?',
+      multipleChoice: {
+        a: 25,
+        b: 27,
+        c: 17,
+      },
+      triviaAnswer: 'B',
+    },
+    {
+      triviaQuestion: 'What was the biggest clue in Scream, telling you which killer was who?',
+      multipleChoice: {
+        a: 'The Phone Calls',
+        b: 'The mask',
+        c: 'The way they held their knives',
+      },
+      triviaAnswer: 'C',
+    },
+    {
+      triviaQuestion: 'What fueled Robert Englund\'s performance the most in the first "A Nightmare on Elm Street" movie?',
+      multipleChoice: {
+        a: 'How much he hated being in the make up chair for long periods of time.',
+        b: 'He wasn\'t allowed to interact much the cast and felt isolated.',
+        c: 'He was jealous of how much less screen time he had compared to his co stars.',
+      },
+      triviaAnswer: 'A',
+    },
+    {
+      triviaQuestion: 'In The Shining, Jack Nicholson had a particular form of training, that caused the set crew to keep making thicker doors for the "Here\'s Johnny" scene.',
+      multipleChoice: {
+        a: 'He had been training to for a triathalon.',
+        b: 'He was a volunteer Marshall.',
+        c: 'He had been strenght training.',
+      },
+      triviaAnswer: 'B',
+    },
+    {
+      triviaQuestion: 'In the first Resident Evil movie, the SFX artist had a weird issues with the dogs. What was it?',
+      multipleChoice: {
+        a: 'They kept being too excited to see everyone.',
+        b: 'They kept licking the meat and fake blood off of themselves.',
+        c: 'They kept being too aggresive with the main actress.',
+      },
+      triviaAnswer: 'B',
+    },
+    {
+      triviaQuestion: 'How many times was Tony Todd stug by bees while making Candyman?',
+      multipleChoice: {
+        a: '',
+        b: '',
+        c: '',
+      },
+      triviaAnswer: '',
+    },
+  ];
+
+  const truthOrDare = [];
 
 
    
@@ -57,7 +142,7 @@ function modifyContent() {
               <li class="ouija-rules">Rule 2: Find the Planchette</li>
               <li class="ouija-rules">Rule 3: Solve the riddles</li>
               <li class="ouija-rules">Rule 4: Answer the riddle using the Planchette</li>
-              <li class="ouija-rules">Rule 5: Hello to submit, Good-Bye to restart</li>
+              <li class="ouija-rules">Rule 5: Hello to submit, Good-Bye to clear</li>
             </ul>
         <div class="ouija-riddle-build">
           <section class="riddle-question" hidden>
@@ -150,7 +235,6 @@ function modifyContent() {
     ouijaSalutation.innerHTML = saluDiv += `<div class="ouija-board-salutationP">${regard}</div>`
     };
 
-    // const boardChoice = document.querySelector('.ouija-board-agree')
 
 
     // Ouija buttons functionality
@@ -211,7 +295,7 @@ function modifyContent() {
       riddleQuestion.removeAttribute('hidden');
       riddling();
 
-       let seconds_left = 60;
+       let seconds_left = 300;
 
         const interval = setInterval(() =>{
           ouijaTimer.innerHTML = formatTime(seconds_left);
@@ -245,8 +329,8 @@ function modifyContent() {
 
         window.addEventListener('mousemove', e => {
             // Adjust -25 to center the image based on its size
-            pointerImg.style.left = e.pageX - 25 + 'px';
-            pointerImg.style.top = e.pageY - 25 + 'px';
+            pointerImg.style.left = e.pageX - 40 + 'px';
+            pointerImg.style.top = e.pageY - 70 + 'px';
         });
 
 
