@@ -35,7 +35,7 @@ function modifyContent() {
   const trueOrFalse = [
     {
       statement: "The first Jack-o'-Lanterns were carved out of turnips.",
-      choice: ["TRUE", "FALSE"],
+      choice: ["YES", "NO"],
       answers: "TRUE. The tradition originated in Ireland, where people carved turnips and potatoes to ward off evil spirits before discovering pumpkins when they moved to America.",
     },
     {
@@ -222,14 +222,10 @@ function modifyContent() {
               <li class="ouija-rules">Rule 7: Hello to submit your answer, Good-Bye to clear your answer.</li>
             </ul>
         <div class="ouija-game-build">
-        <section class="gaming-question" id="true-false" hidden>
-            <div class="truefalse"></div>
-          </section>
-          <section class="gaming-question" id="multi-choice" hidden>
-            <div class="trivia"></div>
-          </section>
-          <section class="gaming-question" id="riddle-question" hidden>
-            <div class="riddled"></div>
+        <section class="gaming-question"  hidden>
+          <div class="truefalse" id="true-false" hidden></div>
+          <div class="trivia" id="multi-choice" hidden></div>
+          <div class="riddled" id="riddle-question" hidden></div>
           </section>
         </div>
           </header>
@@ -359,17 +355,43 @@ function modifyContent() {
 
     // True or False engine:
 
+    const trueFalsing = () => {
+      trueFalse.removeAttribute('hidden');
+      trueFalse.innerText = trueOrFalse[nextQuestion].statement;
+      nextQuestion = nextQuestion + 1;
+    };
 
+
+    ouijaChoice.addEventListener('click', (e) => {
+      if (e.target.textContent !== 'NO'){
+        if (gameAnswered.textContent === trueOrFalse[answering].answers){
+          trueFalsing();
+          gameAnswered.textContent = '';
+          gameAnswered.focus();
+          answering = answering + 1;
+        } else {
+          gameAnswered.innerText = 'Wrong Answer!';
+        }
+      } else {
+         gameAnswered.textContent = '';
+        gameAnswered.focus();
+      }
+    })
 
     // Trivia engine:
 
-
+    const triviaing = () => {
+      multiChoice.removeAttribute('hidden');
+      multiChoice.innerText = triviaQuestions[nextQuestion].triviaQuestion;
+      nextQuestion = nextQuestion + 1;
+    };
 
     // Riddle engine:
 
 
     const riddling = () => {
-      gameQuestion.innerText = theRiddles[nextQuestion].riddle;
+      riddleQuestion.removeAttribute('hidden');
+      riddleQuestion.innerText = theRiddles[nextQuestion].riddle;
       nextQuestion = nextQuestion + 1;
     };
 
@@ -394,11 +416,11 @@ function modifyContent() {
 
 
 
-                                     // Ouija timer section. Beings game and freezes page once time runs out: //
+                                     // Ouija timer section. Begins game and freezes page once time runs out: //
 
      startBttn.addEventListener('click', () => {
       gameQuestion.removeAttribute('hidden');
-      riddling();
+      trueFalsing();
 
        let seconds_left = 300;
 
