@@ -3,7 +3,7 @@ function modifyContent() {
 
 
 
-  // Ouija number and letters array 
+                                                          // Ouija number and letters array: //
 
   const yesNo = [
     'Yes', 'No',
@@ -23,6 +23,141 @@ function modifyContent() {
 
   const helloGoodbye = [
     'Hello', 'Good-Bye',
+  ];
+
+
+
+                                                                // The Gaming Section: //
+
+
+  // The True or False:
+
+  const trueOrFalse = [
+    {
+      statement: "The first Jack-o'-Lanterns were carved out of turnips.",
+      choice: ["TRUE", "FALSE"],
+      answers: "TRUE. The tradition originated in Ireland, where people carved turnips and potatoes to ward off evil spirits before discovering pumpkins when they moved to America.",
+    },
+    {
+      statement: "Trick-or-treating originated as a medieval practice called \"souling,\" where the poor would beg for food and receive pastries called \"soul cakes\"",
+      choice: ["TRUE", "FALSE"],
+      answers: "TRUE.",
+    },
+    {
+      statement: "The word \"Halloween\" is a completely pagan term.",
+      choice: ["TRUE", "FALSE"],
+      answers: " FALSE. \"Halloween\" actually derives from the Catholic church, stemming from \"All Hallows' Eve\" (the evening before All Saints' Day).",
+    },
+    {
+      statement: "The popular candy Snickers was named after a beloved family dog.",
+      choice: ["TRUE", "FALSE"],
+      answers:  "FALSE. The creators of the Snickers bar named it after their favorite horse.",
+    },
+    {
+      statement: "Candy corn was originally created under the name \"chicken feed\".",
+      choice: ["TRUE", "FALSE"],
+      answers: "TRUE",
+    },
+    {
+      statement: "It is a common occurrence for kids to find razor blades and pins in their Halloween candy.",
+      choice: ["TRUE", "FALSE"],
+      answers: " FALSE. This is largely an urban legend; verified, intentional cases of poisoned or booby-trapped Halloween treats are exceedingly rare.",
+    },
+    {
+      statement: "The mask Michael Myers wears in the horror classic Halloween is a modified William Shatner Star Trek mask.",
+      choice: ["TRUE", "FALSE"],
+      answers: "TRUE. The production crew bought a Captain Kirk mask for $2, painted it white, and teased out the hair.",
+    },
+    {
+      statement: "Mary Shelley wrote the book Dracula.",
+      choice: ["TRUE", "FALSE"],
+      answers: " FALSE. Mary Shelley wrote Frankenstein; Dracula was written by Bram Stoker.",
+    },
+    {
+      statement: "A group of witches is traditionally called a coven.",
+      choice: ["TRUE", "FALSE"],
+      answers: "TRUE",
+    },
+    {
+      statement: "Pumpkins are technically fruits.",
+      choice: ["TRUE", "FALSE"],
+      answers: "TRUE. Because they contain seeds, they belong to the botanical family of fruits (specifically berries).",
+    },
+    {
+      statement: "Black cats are harder to adopt from shelters leading up to Halloween.",
+      choice: ["TRUE", "FALSE"],
+      answers: "TRUE. Many shelters suspend adopting out black cats entirely in October to protect them from potential pranks or abuse.",
+    },
+    {
+      statement: "Bats are common Halloween symbols because they were thought to communicate with spirits.",
+      choice: ["TRUE", "FALSE"],
+      answers: "TRUE.",
+    },
+    {
+      statement: "The phrase \"double, double toil and trouble\" comes from a Halloween folktale.",
+      choice: ["TRUE", "FALSE"],
+      answers: "FALSE. It\’s from Shakespeare\’s Macbeth.",
+    },
+  ];
+
+
+  // The Trivia:
+
+  const triviaQuestions = [
+    {
+      triviaQuestion: 'How many times was Tony Todd stung by bees while making Candyman?',
+      multipleChoice: {
+        a: 25,
+        b: 27,
+        c: 17,
+      },
+      answers: 'B',
+    },
+    {
+      triviaQuestion: 'What was the biggest clue in Scream, telling you which killer was who?',
+      multipleChoice: {
+        a: 'The Phone Calls',
+        b: 'The mask',
+        c: 'The way they held their knives',
+      },
+      answers: 'C',
+    },
+    {
+      triviaQuestion: 'What fueled Robert Englund\'s performance the most in the first "A Nightmare on Elm Street" movie?',
+      multipleChoice: {
+        a: 'How much he hated being in the make up chair for long periods of time.',
+        b: 'He wasn\'t allowed to interact much the cast and felt isolated.',
+        c: 'He was jealous of how much less screen time he had compared to his co stars.',
+      },
+      answers: 'A',
+    },
+    {
+      triviaQuestion: 'In The Shining, Jack Nicholson had a particular form of training, that caused the set crew to keep making thicker doors for the "Here\'s Johnny" scene.',
+      multipleChoice: {
+        a: 'He had been training to for a triathalon.',
+        b: 'He was a volunteer Marshall.',
+        c: 'He had been strength training.',
+      },
+      answers: 'B',
+    },
+    {
+      triviaQuestion: 'In the first Resident Evil movie, the SFX artist had a weird issues with the dogs. What was it?',
+      multipleChoice: {
+        a: 'They kept being too excited to see everyone.',
+        b: 'They kept licking the meat and fake blood off of themselves.',
+        c: 'They kept being too aggresive with the team.',
+      },
+      answers: 'B',
+    },
+    {
+      triviaQuestion: 'Which movie did the term "Groovy!" come from?',
+      multipleChoice: {
+        a: 'Army of Darkness',
+        b: 'They Live',
+        c: 'Evil Dead 2',
+      },
+      answers: 'C',
+    },
   ];
 
 
@@ -69,82 +204,30 @@ function modifyContent() {
 
 
 
-  const trivia = [
-    {
-      triviaQuestion: 'How many times was Tony Todd stung by bees while making Candyman?',
-      multipleChoice: {
-        a: 25,
-        b: 27,
-        c: 17,
-      },
-      triviaAnswer: 'B',
-    },
-    {
-      triviaQuestion: 'What was the biggest clue in Scream, telling you which killer was who?',
-      multipleChoice: {
-        a: 'The Phone Calls',
-        b: 'The mask',
-        c: 'The way they held their knives',
-      },
-      triviaAnswer: 'C',
-    },
-    {
-      triviaQuestion: 'What fueled Robert Englund\'s performance the most in the first "A Nightmare on Elm Street" movie?',
-      multipleChoice: {
-        a: 'How much he hated being in the make up chair for long periods of time.',
-        b: 'He wasn\'t allowed to interact much the cast and felt isolated.',
-        c: 'He was jealous of how much less screen time he had compared to his co stars.',
-      },
-      triviaAnswer: 'A',
-    },
-    {
-      triviaQuestion: 'In The Shining, Jack Nicholson had a particular form of training, that caused the set crew to keep making thicker doors for the "Here\'s Johnny" scene.',
-      multipleChoice: {
-        a: 'He had been training to for a triathalon.',
-        b: 'He was a volunteer Marshall.',
-        c: 'He had been strength training.',
-      },
-      triviaAnswer: 'B',
-    },
-    {
-      triviaQuestion: 'In the first Resident Evil movie, the SFX artist had a weird issues with the dogs. What was it?',
-      multipleChoice: {
-        a: 'They kept being too excited to see everyone.',
-        b: 'They kept licking the meat and fake blood off of themselves.',
-        c: 'They kept being too aggresive with the team.',
-      },
-      triviaAnswer: 'B',
-    },
-    {
-      triviaQuestion: 'Which movie did the term "Groovy!" come from?',
-      multipleChoice: {
-        a: 'Army of Darkness',
-        b: 'They Live',
-        c: 'Evil Dead 2',
-      },
-      triviaAnswer: 'C',
-    },
-  ];
-
-  const trueOrFalse = [];
-
-
    
 
-      // Main Ouija game build. HTML section.
+                                                // Main Ouija game build. HTML section: //
 
     mainOuijaPage.innerHTML = `
       <header id="rules" class="rules">
         <div class="ouija-timer" style="font-size: 35px;"></div>
           <h1 class="ouija-title">We Speak:</h1>
             <ul class="ouija-rule-main">
-              <li class="ouija-rules">Rule 1: Beat the clock</li>
-              <li class="ouija-rules">Rule 2: Find the Planchette</li>
-              <li class="ouija-rules">Rule 3: Solve the riddles</li>
-              <li class="ouija-rules">Rule 4: Answer the riddle using the Planchette</li>
-              <li class="ouija-rules">Rule 5: Hello to submit, Good-Bye to clear</li>
+              <li class="ouija-rules">Rule 1: Beat the clock.</li>
+              <li class="ouija-rules">Rule 2: Solve all questions quickly.</li>
+              <li class="ouija-rules">Rule 3: Each correct answer gives bonus time.</li>
+              <li class="ouija-rules">Rule 4: Each hint takes time away.</li>
+              <li class="ouija-rules">Rule 4: Whatever time is left after a finished level will be added to your overall time.</li>
+              <li class="ouija-rules">Rule 6: Answer each question using the Planchette.</li>
+              <li class="ouija-rules">Rule 7: Hello to submit your answer, Good-Bye to clear your answer.</li>
             </ul>
         <div class="ouija-riddle-build">
+        <section class="true-false-question" hidden>
+            <div class="truefalse"></div>
+          </section>
+          <section class="trivia-question" hidden>
+            <div class="trivia"></div>
+          </section>
           <section class="riddle-question" hidden>
             <div class="riddled"></div>
           </section>
@@ -178,7 +261,7 @@ function modifyContent() {
 
 
   
-      // Ouija main game play functionaltiy. 
+                                                        // Ouija main game play functionaltiy: //
     
     const ouijaTimer = document.querySelector('.ouija-timer');
     const ouijaRuleMain = document.querySelector('.ouija-rule-main');
@@ -198,14 +281,14 @@ function modifyContent() {
     const planchette = document.querySelector('#planchette-glass');
     
     const ouijaRiddleBuild = document.querySelector('.ouija-riddle-build');
-    const riddleQuestion = document.querySelector('.riddle-question');
-    const riddleAnswered = document.querySelector('.riddle-answer');
+    const gameQuestion = document.querySelector('.riddle-question');
+    const gameAnswered = document.querySelector('.riddle-answer');
     const startBttn = document.getElementById('start-bttn');
 
 
 
     
-    // Ouija Board game placement
+                                                         // Ouija Board game placement: //
 
     let agreeDiv = "";
     for (const agree of yesNo) {
@@ -238,59 +321,70 @@ function modifyContent() {
 
 
     ouijaChoice.addEventListener('click', (e) => {
-      riddleAnswered.innerText += e.target.textContent;
+      gameAnswered.innerText += e.target.textContent;
     });
 
     ouijaAM.addEventListener('click', (e) => {
-      riddleAnswered.innerText += e.target.textContent;
+      gameAnswered.innerText += e.target.textContent;
     });
     
     ouijaNZ.addEventListener('click', (e) => {
-      riddleAnswered.innerText += e.target.textContent;
+      gameAnswered.innerText += e.target.textContent;
     });
 
     ouijaNum.addEventListener('click', (e) => {
-      riddleAnswered.innerText += e.target.textContent;
+      gameAnswered.innerText += e.target.textContent;
     });
 
 
 
 
-    // Riddle question and answer section:
+                                                                  // Gaming Engine: //
+
+    let answering = 0;
+
+    // True or False engine:
+
+
+
+    // Trivia engine:
+
+
+
+    // Riddle engine:
 
     let nextRiddle = 0;
 
     const riddling = () => {
-      riddleQuestion.innerText = theRiddles[nextRiddle].riddle;
+      gameQuestion.innerText = theRiddles[nextRiddle].riddle;
       nextRiddle = nextRiddle + 1;
     };
 
     
-    let answering = 0;
 
     ouijaSalutation.addEventListener('click', (e) => {
       if (e.target.textContent !== 'Good-Bye'){
-          if (riddleAnswered.textContent === theRiddles[answering].answers) {
+          if (gameAnswered.textContent === theRiddles[answering].answers) {
               riddling();
-              riddleAnswered.textContent = '';
-              riddleAnswered.focus();
+              gameAnswered.textContent = '';
+              gameAnswered.focus();
               answering = answering + 1;
             } else {
-              riddleAnswered.innerText = 'Wrong Answer!';
+              gameAnswered.innerText = 'Wrong Answer!';
             }
       } else {
-        riddleAnswered.textContent = '';
-        riddleAnswered.focus();
+        gameAnswered.textContent = '';
+        gameAnswered.focus();
       }
     });
 
 
 
 
-      // Ouija timer section. Beings game and freezes page once time runs out.
+                                     // Ouija timer section. Beings game and freezes page once time runs out: //
 
      startBttn.addEventListener('click', () => {
-      riddleQuestion.removeAttribute('hidden');
+      gameQuestion.removeAttribute('hidden');
       riddling();
 
        let seconds_left = 300;
@@ -322,7 +416,8 @@ function modifyContent() {
 
 
       
-        //Planchette mouser
+                                                                  // Planchette mouser: //
+
       const pointerImg = document.querySelector('.planchette-cursor');
 
         window.addEventListener('mousemove', e => {
@@ -333,7 +428,7 @@ function modifyContent() {
 
 
 
-        // Responsive styling
+                                                                  // Responsive styling: //
       
       const style = document.createElement("style");
       style.innerHTML = `
