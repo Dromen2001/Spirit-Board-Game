@@ -355,6 +355,7 @@ function modifyContent() {
                                                                   // Gaming Engine: //
 
     let answering = 0;
+    let nextQuestion = 0;
 
     // True or False engine:
 
@@ -366,11 +367,10 @@ function modifyContent() {
 
     // Riddle engine:
 
-    let nextRiddle = 0;
 
     const riddling = () => {
-      gameQuestion.innerText = theRiddles[nextRiddle].riddle;
-      nextRiddle = nextRiddle + 1;
+      gameQuestion.innerText = theRiddles[nextQuestion].riddle;
+      nextQuestion = nextQuestion + 1;
     };
 
     
