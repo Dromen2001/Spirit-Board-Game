@@ -222,18 +222,19 @@ function modifyContent() {
               <li class="ouija-rules">Rule 7: Hello to submit your answer, Good-Bye to clear your answer.</li>
             </ul>
         <div class="ouija-game-build">
-        <section class="gaming-question" hidden>
+        <section class="gaming-question" id="true-false" hidden>
             <div class="truefalse"></div>
           </section>
-          <section class="gaming-question" hidden>
+          <section class="gaming-question" id="multi-choice" hidden>
             <div class="trivia"></div>
           </section>
-          <section class="gaming-question" hidden>
+          <section class="gaming-question" id="riddle-question" hidden>
             <div class="riddled"></div>
           </section>
         </div>
           </header>
           <button id="start-bttn" type="button">Start</button>
+          <button id="next-bttn" type="button" hidden>Next</button>
       <div id="ouija-build">
       <div id="planchette-glass"></div>
         <div class="ouija-board-build">
@@ -262,14 +263,19 @@ function modifyContent() {
 
   
                                                         // Ouija main game play functionaltiy: //
-    
+      // Game Header:
+
     const ouijaTimer = document.querySelector('.ouija-timer');
     const ouijaRuleMain = document.querySelector('.ouija-rule-main');
     const ouijaRules = document.querySelector('.ouija-rules');
 
+      // Board Build:
+
     const ouijaBuild = document.querySelector('#ouija-build');
     const ouijaBoardBuild = document.querySelector('.ouija-board-build');
     const ouijaFunction = document.querySelector('.ouija-function');
+
+      // Lettering Placement:
     
     const ouijaChoice = document.querySelector('#ouija-yes-no');
     const ouijaAM = document.querySelector('#ouija-a-m');
@@ -277,13 +283,20 @@ function modifyContent() {
     const ouijaNum = document.querySelector('#ouija-1-0');
     const ouijaSalutation = document.querySelector('#ouija-sal');
     
-    
+      // Planchette:
+
     const planchette = document.querySelector('#planchette-glass');
+
+      // Gaming:
     
     const ouijaGamingBuild = document.querySelector('.ouija-game-build');
     const gameQuestion = document.querySelector('.gaming-question');
     const gameAnswered = document.querySelector('.gaming-answer');
     const startBttn = document.getElementById('start-bttn');
+    const nextBttn = document.getElementById('next-button');
+    const trueFalse = document.getElementById('true-false');
+    const multiChoice = document.getElementById('multi-choice');
+    const riddleQuestion = document.getElementById('riddle-question');
 
 
 
