@@ -221,14 +221,14 @@ function modifyContent() {
               <li class="ouija-rules">Rule 6: Answer each question using the Planchette.</li>
               <li class="ouija-rules">Rule 7: Hello to submit your answer, Good-Bye to clear your answer.</li>
             </ul>
-        <div class="ouija-riddle-build">
-        <section class="true-false-question" hidden>
+        <div class="ouija-game-build">
+        <section class="gaming-question" hidden>
             <div class="truefalse"></div>
           </section>
-          <section class="trivia-question" hidden>
+          <section class="gaming-question" hidden>
             <div class="trivia"></div>
           </section>
-          <section class="riddle-question" hidden>
+          <section class="gaming-question" hidden>
             <div class="riddled"></div>
           </section>
         </div>
@@ -249,7 +249,7 @@ function modifyContent() {
               <br>
               <div class="ouija-function" id="ouija-sal" type="button" style="display: flex; gap:250px; font-size: 60px; justify-content: center; align-items: center; margin-left: 85px;"></div>
               <br>
-              <div class="riddle-answer"></div>
+              <div class="gaming-answer"></div>
             </main>
           </div>
         </div>
@@ -280,9 +280,9 @@ function modifyContent() {
     
     const planchette = document.querySelector('#planchette-glass');
     
-    const ouijaRiddleBuild = document.querySelector('.ouija-riddle-build');
-    const gameQuestion = document.querySelector('.riddle-question');
-    const gameAnswered = document.querySelector('.riddle-answer');
+    const ouijaGamingBuild = document.querySelector('.ouija-game-build');
+    const gameQuestion = document.querySelector('.gaming-question');
+    const gameAnswered = document.querySelector('.gaming-answer');
     const startBttn = document.getElementById('start-bttn');
 
 

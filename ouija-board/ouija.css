@@ -75,11 +75,6 @@ body {
     color: #6ec23aef;
 }
 
-/* .ouijaChoice div:click {
-
-} */
-
-
 .board-image {
     display: flex;
     flex-direction: row;
@@ -101,7 +96,7 @@ body {
     color: rgba(215, 240, 255, 0.708);
 }
 
-.ouija-riddle-build{
+.ouija-game-build{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -110,7 +105,7 @@ body {
     font-size: 30px;
 }
 
-.riddle-answer {
+.gaming-answer {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
