@@ -35,67 +35,67 @@ function modifyContent() {
   const trueOrFalse = [
     {
       statement: "The first Jack-o'-Lanterns were carved out of turnips.",
-      choice: ["YES", "NO"],
+      choice: "YES",
       answers: "TRUE. The tradition originated in Ireland, where people carved turnips and potatoes to ward off evil spirits before discovering pumpkins when they moved to America.",
     },
     {
       statement: "Trick-or-treating originated as a medieval practice called \"souling,\" where the poor would beg for food and receive pastries called \"soul cakes\"",
-      choice: ["TRUE", "FALSE"],
+      choice: "YES",
       answers: "TRUE.",
     },
     {
       statement: "The word \"Halloween\" is a completely pagan term.",
-      choice: ["TRUE", "FALSE"],
+      choice: "NO",
       answers: " FALSE. \"Halloween\" actually derives from the Catholic church, stemming from \"All Hallows' Eve\" (the evening before All Saints' Day).",
     },
     {
       statement: "The popular candy Snickers was named after a beloved family dog.",
-      choice: ["TRUE", "FALSE"],
+      choice: "NO",
       answers:  "FALSE. The creators of the Snickers bar named it after their favorite horse.",
     },
     {
       statement: "Candy corn was originally created under the name \"chicken feed\".",
-      choice: ["TRUE", "FALSE"],
+      choice: "YES",
       answers: "TRUE",
     },
     {
       statement: "It is a common occurrence for kids to find razor blades and pins in their Halloween candy.",
-      choice: ["TRUE", "FALSE"],
+      choice: "NO",
       answers: " FALSE. This is largely an urban legend; verified, intentional cases of poisoned or booby-trapped Halloween treats are exceedingly rare.",
     },
     {
       statement: "The mask Michael Myers wears in the horror classic Halloween is a modified William Shatner Star Trek mask.",
-      choice: ["TRUE", "FALSE"],
+      choice: "YES",
       answers: "TRUE. The production crew bought a Captain Kirk mask for $2, painted it white, and teased out the hair.",
     },
     {
       statement: "Mary Shelley wrote the book Dracula.",
-      choice: ["TRUE", "FALSE"],
+      choice: "NO",
       answers: " FALSE. Mary Shelley wrote Frankenstein; Dracula was written by Bram Stoker.",
     },
     {
       statement: "A group of witches is traditionally called a coven.",
-      choice: ["TRUE", "FALSE"],
+      choice: "YES",
       answers: "TRUE",
     },
     {
       statement: "Pumpkins are technically fruits.",
-      choice: ["TRUE", "FALSE"],
+      choice: "YES",
       answers: "TRUE. Because they contain seeds, they belong to the botanical family of fruits (specifically berries).",
     },
     {
       statement: "Black cats are harder to adopt from shelters leading up to Halloween.",
-      choice: ["TRUE", "FALSE"],
+      choice: "YES",
       answers: "TRUE. Many shelters suspend adopting out black cats entirely in October to protect them from potential pranks or abuse.",
     },
     {
       statement: "Bats are common Halloween symbols because they were thought to communicate with spirits.",
-      choice: ["TRUE", "FALSE"],
+      choice: "YES",
       answers: "TRUE.",
     },
     {
       statement: "The phrase \"double, double toil and trouble\" comes from a Halloween folktale.",
-      choice: ["TRUE", "FALSE"],
+      choice: "NO",
       answers: "FALSE. It\’s from Shakespeare\’s Macbeth.",
     },
   ];
@@ -211,7 +211,7 @@ function modifyContent() {
     mainOuijaPage.innerHTML = `
       <header id="rules" class="rules">
         <div class="ouija-timer" style="font-size: 35px;"></div>
-          <h1 class="ouija-title">We Speak:</h1>
+          <h1 class="ouija-title">Are You There?</h1>
             <ul class="ouija-rule-main">
               <li class="ouija-rules">Rule 1: Beat the clock.</li>
               <li class="ouija-rules">Rule 2: Solve all questions quickly.</li>
@@ -349,9 +349,11 @@ function modifyContent() {
 
 
                                                                   // Gaming Engine: //
-
-    let answering = 0;
+    
     let nextQuestion = 0;
+    let choices = 0;
+    let answering = 0;
+
 
     // True or False engine:
 
@@ -363,28 +365,38 @@ function modifyContent() {
 
 
     ouijaChoice.addEventListener('click', (e) => {
-      if (e.target.textContent !== 'NO'){
-        if (gameAnswered.textContent === trueOrFalse[answering].answers){
-          trueFalsing();
-          gameAnswered.textContent = '';
+      if (e.target.textContent === 'YES'){
+        if (gameAnswered.textContent === trueOrFalse[choices].choice){
+          gameAnswered.textContent = trueOrFalse[answering].answers;
+          gameAnswered.focus();
+          answering = answering + 1;
+        } else {
+          gameAnswered.innerText = 'Wrong Answer!';
+        }
+      } else if (e.target.textContent === 'NO') {
+         if (gameAnswered.textContent === trueOrFalse[choices].choice){
+          gameAnswered.textContent = trueOrFalse[answering].answers;
           gameAnswered.focus();
           answering = answering + 1;
         } else {
           gameAnswered.innerText = 'Wrong Answer!';
         }
       } else {
-         gameAnswered.textContent = '';
+        gameAnswered.textContent = '';
         gameAnswered.focus();
       }
     })
 
+
+
+
     // Trivia engine:
 
-    const triviaing = () => {
-      multiChoice.removeAttribute('hidden');
-      multiChoice.innerText = triviaQuestions[nextQuestion].triviaQuestion;
-      nextQuestion = nextQuestion + 1;
-    };
+    // const triviaing = () => {
+    //   multiChoice.removeAttribute('hidden');
+    //   multiChoice.innerText = triviaQuestions[nextQuestion].triviaQuestion;
+    //   nextQuestion = nextQuestion + 1;
+    // };
 
     // Riddle engine:
 
@@ -400,7 +412,6 @@ function modifyContent() {
     ouijaSalutation.addEventListener('click', (e) => {
       if (e.target.textContent !== 'Good-Bye'){
           if (gameAnswered.textContent === theRiddles[answering].answers) {
-              riddling();
               gameAnswered.textContent = '';
               gameAnswered.focus();
               answering = answering + 1;
@@ -457,8 +468,8 @@ function modifyContent() {
 
         window.addEventListener('mousemove', e => {
             // Adjust -25 to center the image based on its size
-            pointerImg.style.left = e.pageX - 40 + 'px';
-            pointerImg.style.top = e.pageY - 70 + 'px';
+            pointerImg.style.left = e.pageX - 55 + 'px';
+            pointerImg.style.top = e.pageY - 90 + 'px';
         });
 
 
