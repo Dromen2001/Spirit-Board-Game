@@ -365,16 +365,8 @@ function modifyContent() {
 
 
     ouijaChoice.addEventListener('click', (e) => {
-      if (e.target.textContent === 'YES'){
-        if (gameAnswered.textContent === trueOrFalse[choices].choice){
-          gameAnswered.textContent = trueOrFalse[answering].answers;
-          gameAnswered.focus();
-          answering = answering + 1;
-        } else {
-          gameAnswered.innerText = 'Wrong Answer!';
-        }
-      } else if (e.target.textContent === 'NO') {
-         if (gameAnswered.textContent === trueOrFalse[choices].choice){
+      if (e.target.textContent === trueOrFalse[choice]){
+        if (trueOrFalse[choice]){
           gameAnswered.textContent = trueOrFalse[answering].answers;
           gameAnswered.focus();
           answering = answering + 1;
