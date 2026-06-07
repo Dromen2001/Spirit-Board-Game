@@ -141,7 +141,7 @@ function modifyContent() {
       answers: 'B',
     },
     {
-      triviaQuestion: 'In the first Resident Evil movie, the SFX artist had a weird issues with the dogs. What was it?',
+      triviaQuestion: 'In the first Resident Evil movie, the SFX artist had some weird issues with the dogs. What was it?',
       multipleChoice: {
         a: 'They kept being too excited to see everyone.',
         b: 'They kept licking the meat and fake blood off of themselves.',
@@ -365,8 +365,25 @@ function modifyContent() {
 
 
     ouijaChoice.addEventListener('click', (e) => {
-      if (e.target.textContent === trueOrFalse[choice]){
-        if (trueOrFalse[choice]){
+      if (e.target.textContent === 'YES'){
+        // switch (trueOrFalse[choice]) {
+        //   case "YES":
+        //     gameAnswered.textContent = trueOrFalse[answering].answers;
+        //     gameAnswered.focus();
+        //     break;
+        //   case "NO":
+        //     gameAnswered.textContent = trueOrFalse[answering].answers;
+        //     gameAnswered.focus();
+        //     break;
+        //   default:
+        //     gameAnswered.innerText = 'Wrong Answer!';
+        //     break;
+        // }
+        
+        
+        
+        if (e.target.textContent === trueOrFalse.choice){
+          trueFalsing();
           gameAnswered.textContent = trueOrFalse[answering].answers;
           gameAnswered.focus();
           answering = answering + 1;
