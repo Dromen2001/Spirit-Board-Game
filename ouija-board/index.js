@@ -35,68 +35,120 @@ function modifyContent() {
   const trueOrFalse = [
     {
       statement: "The first Jack-o'-Lanterns were carved out of turnips.",
-      choice: "YES",
-      answers: "TRUE. The tradition originated in Ireland, where people carved turnips and potatoes to ward off evil spirits before discovering pumpkins when they moved to America.",
+      // choice: 'YES',
+      answers: {
+                YES: true,
+                NO: false,
+                answer: "true The tradition originated in Ireland, where people carved turnips and potatoes to ward off evil spirits before discovering pumpkins when they moved to America.",
+               },
     },
     {
       statement: "Trick-or-treating originated as a medieval practice called \"souling,\" where the poor would beg for food and receive pastries called \"soul cakes\"",
-      choice: "YES",
-      answers: "TRUE.",
+      // choice: {correct: "YES", incorrect: "NO"},
+      answers: {
+                YES: true,
+                NO: false,
+                answer: "TRUE.",
+               },
     },
     {
       statement: "The word \"Halloween\" is a completely pagan term.",
-      choice: "NO",
-      answers: " FALSE. \"Halloween\" actually derives from the Catholic church, stemming from \"All Hallows' Eve\" (the evening before All Saints' Day).",
+      // choice: {correct: "NO", incorrect: "YES"},
+      answers: {
+                NO: true,
+                YES: false,
+                answer: "FALSE. \"Halloween\" actually derives from the Catholic church, stemming from \"All Hallows' Eve\" (the evening before All Saints' Day).",
+               },
     },
     {
       statement: "The popular candy Snickers was named after a beloved family dog.",
-      choice: "NO",
-      answers:  "FALSE. The creators of the Snickers bar named it after their favorite horse.",
+      // choice: {correct: "NO", incorrect: "YES"},
+      answers:  {
+                 NO: true,
+                 YES: false,
+                 answer: "FALSE. The creators of the Snickers bar named it after their favorite horse.",
+                },
     },
     {
       statement: "Candy corn was originally created under the name \"chicken feed\".",
-      choice: "YES",
-      answers: "TRUE",
+      // choice: {correct: "YES", incorrect: "NO"},
+      answers: {
+                YES: true,
+                NO: false,
+                answer: "TRUE",
+               },
     },
     {
       statement: "It is a common occurrence for kids to find razor blades and pins in their Halloween candy.",
-      choice: "NO",
-      answers: " FALSE. This is largely an urban legend; verified, intentional cases of poisoned or booby-trapped Halloween treats are exceedingly rare.",
+      // choice: {correct: "NO", incorrect: "YES"},
+      answers: {
+                NO: true,
+                YES: false,
+                answer: "FALSE. This is largely an urban legend; verified, intentional cases of poisoned or booby-trapped Halloween treats are exceedingly rare.",
+               },
     },
     {
       statement: "The mask Michael Myers wears in the horror classic Halloween is a modified William Shatner Star Trek mask.",
-      choice: "YES",
-      answers: "TRUE. The production crew bought a Captain Kirk mask for $2, painted it white, and teased out the hair.",
+      // choice: {correct: "YES", incorrect: "NO"},
+      answers: {
+                YES: true,
+                NO: false,
+                answer: "TRUE. The production crew bought a Captain Kirk mask for $2, painted it white, and teased out the hair.",
+               },
     },
     {
       statement: "Mary Shelley wrote the book Dracula.",
-      choice: "NO",
-      answers: " FALSE. Mary Shelley wrote Frankenstein; Dracula was written by Bram Stoker.",
+      // choice: {correct: "NO", incorrect: "YES"},
+      answers: {
+                NO: true,
+                YES: false,
+                answer: "FALSE. Mary Shelley wrote Frankenstein; Dracula was written by Bram Stoker.",
+               },
     },
     {
       statement: "A group of witches is traditionally called a coven.",
-      choice: "YES",
-      answers: "TRUE",
+      // choice: {correct: "YES", incorrect: "NO"},
+      answers: {
+                YES: true,
+                NO: false,
+                answer: "TRUE",
+               },
     },
     {
       statement: "Pumpkins are technically fruits.",
-      choice: "YES",
-      answers: "TRUE. Because they contain seeds, they belong to the botanical family of fruits (specifically berries).",
+      // choice: {correct: "YES", incorrect: "NO"},
+      answers: {
+                YES: true,
+                NO: false,
+                answer: "TRUE. Because they contain seeds, they belong to the botanical family of fruits (specifically berries).",
+               },
     },
     {
       statement: "Black cats are harder to adopt from shelters leading up to Halloween.",
-      choice: "YES",
-      answers: "TRUE. Many shelters suspend adopting out black cats entirely in October to protect them from potential pranks or abuse.",
+      // choice: {correct: "YES", incorrect: "NO"},
+      answers: {
+                YES: true,
+                NO: false,
+                answer: "TRUE. Many shelters suspend adopting out black cats entirely in October to protect them from potential pranks or abuse.",
+               },
     },
     {
       statement: "Bats are common Halloween symbols because they were thought to communicate with spirits.",
-      choice: "YES",
-      answers: "TRUE.",
+      // choice: {correct: "YES", incorrect: "NO"},
+      answers: {
+                YES: true,
+                NO: false,
+                answer: "TRUE.",
+               },
     },
     {
       statement: "The phrase \"double, double toil and trouble\" comes from a Halloween folktale.",
-      choice: "NO",
-      answers: "FALSE. It\’s from Shakespeare\’s Macbeth.",
+      // choice: {correct: "NO", incorrect: "YES"},
+      answers: {
+                NO: true,
+                YES: false,
+                answer: "FALSE. It\’s from Shakespeare\’s Macbeth.",
+               },
     },
   ];
 
@@ -351,7 +403,7 @@ function modifyContent() {
                                                                   // Gaming Engine: //
     
     let nextQuestion = 0;
-    let choices = 0;
+    // let choices = 1;
     let answering = 0;
 
 
@@ -365,36 +417,26 @@ function modifyContent() {
 
 
     ouijaChoice.addEventListener('click', (e) => {
-      if (e.target.textContent === 'YES'){
-        // switch (trueOrFalse[choice]) {
-        //   case "YES":
-        //     gameAnswered.textContent = trueOrFalse[answering].answers;
-        //     gameAnswered.focus();
-        //     break;
-        //   case "NO":
-        //     gameAnswered.textContent = trueOrFalse[answering].answers;
-        //     gameAnswered.focus();
-        //     break;
-        //   default:
-        //     gameAnswered.innerText = 'Wrong Answer!';
-        //     break;
-        // }
-        
-        
-        
-        if (e.target.textContent === trueOrFalse.choice){
-          trueFalsing();
-          gameAnswered.textContent = trueOrFalse[answering].answers;
-          gameAnswered.focus();
-          answering = answering + 1;
-        } else {
-          gameAnswered.innerText = 'Wrong Answer!';
+        if (e.target.textContent) {
+           if (trueOrFalse[answering].answers.YES === true) {
+              console.log("im working YES");
+              gameAnswered.innerText = trueOrFalse[answering].answers.answer;
+              gameAnswered.focus();
+              trueFalsing();
+              answering = answering + 1;
+            } else if (trueOrFalse[answering].answers.NO === true) {
+              console.log("im working NO");
+              gameAnswered.innerText = trueOrFalse[answering].answers.answer;
+              gameAnswered.focus();
+              trueFalsing();
+              answering = answering + 1;
+            } else {
+              console.log("im working yes wrong answer");
+              gameAnswered.innerText = 'Wrong Answer!';
+            }
         }
-      } else {
-        gameAnswered.textContent = '';
-        gameAnswered.focus();
-      }
-    })
+           
+      })
 
 
 
