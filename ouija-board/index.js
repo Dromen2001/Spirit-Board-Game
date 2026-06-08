@@ -6,7 +6,7 @@ function modifyContent() {
                                                           // Ouija number and letters array: //
 
   const yesNo = [
-    'Yes', 'No',
+    'YES', 'NO',
   ];
 
   const AToM = [
@@ -38,7 +38,7 @@ function modifyContent() {
       // choice: 'YES',
       answers: {
                 YES: true,
-                NO: false,
+                // NO: false,
                 answer: "true The tradition originated in Ireland, where people carved turnips and potatoes to ward off evil spirits before discovering pumpkins when they moved to America.",
                },
     },
@@ -47,7 +47,7 @@ function modifyContent() {
       // choice: {correct: "YES", incorrect: "NO"},
       answers: {
                 YES: true,
-                NO: false,
+                // NO: false,
                 answer: "TRUE.",
                },
     },
@@ -56,7 +56,7 @@ function modifyContent() {
       // choice: {correct: "NO", incorrect: "YES"},
       answers: {
                 NO: true,
-                YES: false,
+                // YES: false,
                 answer: "FALSE. \"Halloween\" actually derives from the Catholic church, stemming from \"All Hallows' Eve\" (the evening before All Saints' Day).",
                },
     },
@@ -65,7 +65,7 @@ function modifyContent() {
       // choice: {correct: "NO", incorrect: "YES"},
       answers:  {
                  NO: true,
-                 YES: false,
+                //  YES: false,
                  answer: "FALSE. The creators of the Snickers bar named it after their favorite horse.",
                 },
     },
@@ -74,7 +74,7 @@ function modifyContent() {
       // choice: {correct: "YES", incorrect: "NO"},
       answers: {
                 YES: true,
-                NO: false,
+                // NO: false,
                 answer: "TRUE",
                },
     },
@@ -83,7 +83,7 @@ function modifyContent() {
       // choice: {correct: "NO", incorrect: "YES"},
       answers: {
                 NO: true,
-                YES: false,
+                // YES: false,
                 answer: "FALSE. This is largely an urban legend; verified, intentional cases of poisoned or booby-trapped Halloween treats are exceedingly rare.",
                },
     },
@@ -92,7 +92,7 @@ function modifyContent() {
       // choice: {correct: "YES", incorrect: "NO"},
       answers: {
                 YES: true,
-                NO: false,
+                // NO: false,
                 answer: "TRUE. The production crew bought a Captain Kirk mask for $2, painted it white, and teased out the hair.",
                },
     },
@@ -101,7 +101,7 @@ function modifyContent() {
       // choice: {correct: "NO", incorrect: "YES"},
       answers: {
                 NO: true,
-                YES: false,
+                // YES: false,
                 answer: "FALSE. Mary Shelley wrote Frankenstein; Dracula was written by Bram Stoker.",
                },
     },
@@ -110,7 +110,7 @@ function modifyContent() {
       // choice: {correct: "YES", incorrect: "NO"},
       answers: {
                 YES: true,
-                NO: false,
+                // NO: false,
                 answer: "TRUE",
                },
     },
@@ -119,7 +119,7 @@ function modifyContent() {
       // choice: {correct: "YES", incorrect: "NO"},
       answers: {
                 YES: true,
-                NO: false,
+                // NO: false,
                 answer: "TRUE. Because they contain seeds, they belong to the botanical family of fruits (specifically berries).",
                },
     },
@@ -128,7 +128,7 @@ function modifyContent() {
       // choice: {correct: "YES", incorrect: "NO"},
       answers: {
                 YES: true,
-                NO: false,
+                // NO: false,
                 answer: "TRUE. Many shelters suspend adopting out black cats entirely in October to protect them from potential pranks or abuse.",
                },
     },
@@ -137,7 +137,7 @@ function modifyContent() {
       // choice: {correct: "YES", incorrect: "NO"},
       answers: {
                 YES: true,
-                NO: false,
+                // NO: false,
                 answer: "TRUE.",
                },
     },
@@ -146,7 +146,7 @@ function modifyContent() {
       // choice: {correct: "NO", incorrect: "YES"},
       answers: {
                 NO: true,
-                YES: false,
+                // YES: false,
                 answer: "FALSE. It\’s from Shakespeare\’s Macbeth.",
                },
     },
@@ -403,77 +403,76 @@ function modifyContent() {
                                                                   // Gaming Engine: //
     
     let nextQuestion = 0;
-    // let choices = 1;
     let answering = 0;
-
-
+    
+    
     // True or False engine:
 
-    const trueFalsing = () => {
-      trueFalse.removeAttribute('hidden');
-      trueFalse.innerText = trueOrFalse[nextQuestion].statement;
-      nextQuestion = nextQuestion + 1;
-    };
-
-
-    ouijaChoice.addEventListener('click', (e) => {
-        if (e.target.textContent) {
-           if (trueOrFalse[answering].answers.YES === true) {
-              console.log("im working YES");
-              gameAnswered.innerText = trueOrFalse[answering].answers.answer;
-              gameAnswered.focus();
-              trueFalsing();
-              answering = answering + 1;
-            } else if (trueOrFalse[answering].answers.NO === true) {
-              console.log("im working NO");
-              gameAnswered.innerText = trueOrFalse[answering].answers.answer;
-              gameAnswered.focus();
-              trueFalsing();
-              answering = answering + 1;
-            } else {
-              console.log("im working yes wrong answer");
-              gameAnswered.innerText = 'Wrong Answer!';
+    // const startGameHere = () => {
+      const trueFalsing = () => {
+          trueFalse.removeAttribute('hidden');
+          trueFalse.innerText = trueOrFalse[nextQuestion].statement;
+          nextQuestion = nextQuestion + 1;
+      };
+        
+        
+        ouijaChoice.addEventListener('click', (e) => {
+            let isUserTrue = e.target.textContent === 'YES' || e.target.textContent === 'NO';
+              if (isUserTrue === trueOrFalse[answering].answers[e.target.textContent]) {
+                  console.log("im working YES");
+                  gameAnswered.innerText = trueOrFalse[answering].answers.answer;
+                  gameAnswered.focus();
+                  trueFalsing();
+                  answering = answering + 1;
+                } 
+                else {
+                  console.log("im working yes wrong answer");
+                  gameAnswered.innerText = 'Wrong Answer!';
+                }
             }
-        }
-           
-      })
+          )
 
 
 
 
-    // Trivia engine:
+        // Trivia engine:
 
-    // const triviaing = () => {
-    //   multiChoice.removeAttribute('hidden');
-    //   multiChoice.innerText = triviaQuestions[nextQuestion].triviaQuestion;
-    //   nextQuestion = nextQuestion + 1;
-    // };
-
-    // Riddle engine:
+        const triviaing = () => {
+          multiChoice.removeAttribute('hidden');
+          multiChoice.innerText = triviaQuestions[nextQuestion].triviaQuestion;
+          nextQuestion = nextQuestion + 1;
+        };
 
 
-    const riddling = () => {
-      riddleQuestion.removeAttribute('hidden');
-      riddleQuestion.innerText = theRiddles[nextQuestion].riddle;
-      nextQuestion = nextQuestion + 1;
-    };
+        
+        // Riddle engine:
 
+
+        const riddling = () => {
+          riddleQuestion.removeAttribute('hidden');
+          riddleQuestion.innerText = theRiddles[nextQuestion].riddle;
+          nextQuestion = nextQuestion + 1;
+        };
+
+        
+
+        ouijaSalutation.addEventListener('click', (e) => {
+          if (e.target.textContent !== 'Good-Bye'){
+              if (gameAnswered.textContent === theRiddles[answering].answers) {
+                  gameAnswered.textContent = '';
+                  gameAnswered.focus();
+                  answering = answering + 1;
+                } else {
+                  gameAnswered.innerText = 'Wrong Answer!';
+                }
+          } else {
+            gameAnswered.textContent = '';
+            gameAnswered.focus();
+          }
+        });
+    // }
     
-
-    ouijaSalutation.addEventListener('click', (e) => {
-      if (e.target.textContent !== 'Good-Bye'){
-          if (gameAnswered.textContent === theRiddles[answering].answers) {
-              gameAnswered.textContent = '';
-              gameAnswered.focus();
-              answering = answering + 1;
-            } else {
-              gameAnswered.innerText = 'Wrong Answer!';
-            }
-      } else {
-        gameAnswered.textContent = '';
-        gameAnswered.focus();
-      }
-    });
+    
 
 
 
