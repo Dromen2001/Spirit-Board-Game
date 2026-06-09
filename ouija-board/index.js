@@ -35,100 +35,78 @@ function modifyContent() {
   const trueOrFalse = [
     {
       statement: "The first Jack-o'-Lanterns were carved out of turnips.",
-      // choice: 'YES',
       answers: {
                 YES: true,
-                // NO: false,
-                answer: "true The tradition originated in Ireland, where people carved turnips and potatoes to ward off evil spirits before discovering pumpkins when they moved to America.",
+                answer: "TRUE. The tradition originated in Ireland, where people carved turnips and potatoes to ward off evil spirits before discovering pumpkins when they moved to America.",
                },
     },
     {
       statement: "Trick-or-treating originated as a medieval practice called \"souling,\" where the poor would beg for food and receive pastries called \"soul cakes\"",
-      // choice: {correct: "YES", incorrect: "NO"},
       answers: {
                 YES: true,
-                // NO: false,
                 answer: "TRUE.",
                },
     },
     {
       statement: "The word \"Halloween\" is a completely pagan term.",
-      // choice: {correct: "NO", incorrect: "YES"},
       answers: {
                 NO: true,
-                // YES: false,
                 answer: "FALSE. \"Halloween\" actually derives from the Catholic church, stemming from \"All Hallows' Eve\" (the evening before All Saints' Day).",
                },
     },
     {
       statement: "The popular candy Snickers was named after a beloved family dog.",
-      // choice: {correct: "NO", incorrect: "YES"},
       answers:  {
                  NO: true,
-                //  YES: false,
                  answer: "FALSE. The creators of the Snickers bar named it after their favorite horse.",
                 },
     },
     {
       statement: "Candy corn was originally created under the name \"chicken feed\".",
-      // choice: {correct: "YES", incorrect: "NO"},
       answers: {
                 YES: true,
-                // NO: false,
                 answer: "TRUE",
                },
     },
     {
       statement: "It is a common occurrence for kids to find razor blades and pins in their Halloween candy.",
-      // choice: {correct: "NO", incorrect: "YES"},
       answers: {
                 NO: true,
-                // YES: false,
                 answer: "FALSE. This is largely an urban legend; verified, intentional cases of poisoned or booby-trapped Halloween treats are exceedingly rare.",
                },
     },
     {
       statement: "The mask Michael Myers wears in the horror classic Halloween is a modified William Shatner Star Trek mask.",
-      // choice: {correct: "YES", incorrect: "NO"},
       answers: {
                 YES: true,
-                // NO: false,
                 answer: "TRUE. The production crew bought a Captain Kirk mask for $2, painted it white, and teased out the hair.",
                },
     },
     {
       statement: "Mary Shelley wrote the book Dracula.",
-      // choice: {correct: "NO", incorrect: "YES"},
       answers: {
                 NO: true,
-                // YES: false,
                 answer: "FALSE. Mary Shelley wrote Frankenstein; Dracula was written by Bram Stoker.",
                },
     },
     {
       statement: "A group of witches is traditionally called a coven.",
-      // choice: {correct: "YES", incorrect: "NO"},
       answers: {
                 YES: true,
-                // NO: false,
                 answer: "TRUE",
                },
     },
     {
       statement: "Pumpkins are technically fruits.",
-      // choice: {correct: "YES", incorrect: "NO"},
       answers: {
                 YES: true,
-                // NO: false,
                 answer: "TRUE. Because they contain seeds, they belong to the botanical family of fruits (specifically berries).",
                },
     },
     {
       statement: "Black cats are harder to adopt from shelters leading up to Halloween.",
-      // choice: {correct: "YES", incorrect: "NO"},
       answers: {
                 YES: true,
-                // NO: false,
                 answer: "TRUE. Many shelters suspend adopting out black cats entirely in October to protect them from potential pranks or abuse.",
                },
     },
@@ -137,16 +115,13 @@ function modifyContent() {
       // choice: {correct: "YES", incorrect: "NO"},
       answers: {
                 YES: true,
-                // NO: false,
                 answer: "TRUE.",
                },
     },
     {
       statement: "The phrase \"double, double toil and trouble\" comes from a Halloween folktale.",
-      // choice: {correct: "NO", incorrect: "YES"},
       answers: {
                 NO: true,
-                // YES: false,
                 answer: "FALSE. It\’s from Shakespeare\’s Macbeth.",
                },
     },
@@ -158,57 +133,69 @@ function modifyContent() {
   const triviaQuestions = [
     {
       triviaQuestion: 'How many times was Tony Todd stung by bees while making Candyman?',
-      multipleChoice: {
-        a: 25,
-        b: 27,
-        c: 17,
+      multipleChoice:[
+        {id:'A', questionnaire:'25'},
+        {id:'B', questionnaire:'27'},
+        {id:'C', questionnaire:'17'},
+      ],
+      answers: {
+        B: true,
       },
-      answers: 'B',
     },
     {
       triviaQuestion: 'What was the biggest clue in Scream, telling you which killer was who?',
-      multipleChoice: {
-        a: 'The Phone Calls',
-        b: 'The mask',
-        c: 'The way they held their knives',
+      multipleChoice: [
+        {id:'A', questionnaire: 'The Phone Calls'},
+        {id:'B', questionnaire: 'The mask'},
+        {id:'C', questionnaire: 'The way they held their knives'},
+      ],
+      answers: {
+        C: true,
       },
-      answers: 'C',
     },
     {
       triviaQuestion: 'What fueled Robert Englund\'s performance the most in the first "A Nightmare on Elm Street" movie?',
-      multipleChoice: {
-        a: 'How much he hated being in the make up chair for long periods of time.',
-        b: 'He wasn\'t allowed to interact much the cast and felt isolated.',
-        c: 'He was jealous of how much less screen time he had compared to his co stars.',
+      multipleChoice: [
+        {id:'A', questionnaire: 'How much he hated being in the make up chair for long periods of time.'},
+        {id:'B', questionnaire: 'He wasn\'t allowed to interact much the cast and felt isolated.'},
+        {id:'C', questionnaire: 'He was jealous of how much less screen time he had compared to his co stars.'},
+      ],
+      answers: {
+        A: true,
       },
-      answers: 'A',
     },
     {
       triviaQuestion: 'In The Shining, Jack Nicholson had a particular form of training, that caused the set crew to keep making thicker doors for the "Here\'s Johnny" scene.',
-      multipleChoice: {
-        a: 'He had been training to for a triathalon.',
-        b: 'He was a volunteer Marshall.',
-        c: 'He had been strength training.',
+      multipleChoice: [
+        {id:'A', questionnaire: 'He had been training to for a triathalon.'},
+        {id:'B', questionnaire: 'He was a volunteer Marshall.'},
+        {id:'C', questionnaire: 'He had been strength training.'},
+      ],
+      answers: {
+        B: true,
       },
-      answers: 'B',
     },
     {
       triviaQuestion: 'In the first Resident Evil movie, the SFX artist had some weird issues with the dogs. What was it?',
-      multipleChoice: {
-        a: 'They kept being too excited to see everyone.',
-        b: 'They kept licking the meat and fake blood off of themselves.',
-        c: 'They kept being too aggresive with the team.',
+      multipleChoice: [
+        {id:'A', questionnaire: 'They kept being too excited to see everyone.'},
+        {id:'B', questionnaire: 'They kept licking the meat and fake blood off of themselves.'},
+        {id:'C', questionnaire: 'They kept being too aggresive with the team.'},
+      ],
+      answers: {
+        B: true,
       },
-      answers: 'B',
     },
     {
       triviaQuestion: 'Which movie did the term "Groovy!" come from?',
-      multipleChoice: {
-        a: 'Army of Darkness',
-        b: 'They Live',
-        c: 'Evil Dead 2',
+      multipleChoice: [
+        {id:'A', questionnaire: 'Army of Darkness'},
+        {id:'B', questionnaire: 'They Live'},
+        {id:'C', questionnaire: 'Evil Dead 2'},
+      ],
+      answers: {
+        C: true,
       },
-      answers: 'C',
     },
   ];
 
@@ -277,6 +264,7 @@ function modifyContent() {
         <section class="gaming-question"  hidden>
           <div class="truefalse" id="true-false" hidden></div>
           <div class="trivia" id="multi-choice" hidden></div>
+          <div id="multi-options"></div>
           <div class="riddled" id="riddle-question" hidden></div>
           </section>
         </div>
@@ -344,6 +332,7 @@ function modifyContent() {
     const nextBttn = document.getElementById('next-button');
     const trueFalse = document.getElementById('true-false');
     const multiChoice = document.getElementById('multi-choice');
+    const multiOptions = document.getElementById('multi-options');
     const riddleQuestion = document.getElementById('riddle-question');
 
 
@@ -403,6 +392,7 @@ function modifyContent() {
                                                                   // Gaming Engine: //
     
     let nextQuestion = 0;
+    let choices = 0;
     let answering = 0;
     
     
@@ -419,18 +409,14 @@ function modifyContent() {
         ouijaChoice.addEventListener('click', (e) => {
             let isUserTrue = e.target.textContent === 'YES' || e.target.textContent === 'NO';
               if (isUserTrue === trueOrFalse[answering].answers[e.target.textContent]) {
-                  console.log("im working YES");
                   gameAnswered.innerText = trueOrFalse[answering].answers.answer;
                   gameAnswered.focus();
                   trueFalsing();
                   answering = answering + 1;
-                } 
-                else {
-                  console.log("im working yes wrong answer");
+                } else {
                   gameAnswered.innerText = 'Wrong Answer!';
                 }
-            }
-          )
+            });
 
 
 
@@ -440,11 +426,26 @@ function modifyContent() {
         const triviaing = () => {
           multiChoice.removeAttribute('hidden');
           multiChoice.innerText = triviaQuestions[nextQuestion].triviaQuestion;
+          multiOptions.innerHTML = triviaQuestions[choices].multipleChoice.map(choice =>  `<li>${choice.id}:  ${choice.questionnaire}</li>`).join(""); 
+          
           nextQuestion = nextQuestion + 1;
+          choices = choices + 1;
         };
 
+        ouijaAM.addEventListener('click', (e) => {
+          let isUserChosen = e.target.textContent === 'A' || e.target.textContent === 'B' || e.target.textContent === 'C';
+          console.log(isUserChosen);
+            if (isUserChosen === triviaQuestions[answering].answers[e.target.textContent]) {
+              gameAnswered.innerText = '';
+              gameAnswered.focus();
+              triviaing();
+              console.log(gameAnswered);
+              answering = answering + 1;
+            } else {
+              gameAnswered.innerText = 'Wrong Answer!';
+            }
+        });
 
-        
         // Riddle engine:
 
 
@@ -481,7 +482,8 @@ function modifyContent() {
 
      startBttn.addEventListener('click', () => {
       gameQuestion.removeAttribute('hidden');
-      trueFalsing();
+      // trueFalsing();
+      triviaing();
 
        let seconds_left = 300;
 
