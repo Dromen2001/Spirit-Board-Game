@@ -31,7 +31,7 @@ body {
      background-image: linear-gradient(to bottom, #016fcfae 30%, #016fcf04 60%);
 }
 
-.ouija-rule-main, li {
+.spirit-rule-main, li {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -52,8 +52,8 @@ body {
     z-index: 9999;
 }
 
-.ouija-board-build {
-    background-image: url('images/blank-ouija-board1.jpg.png');
+.spirit-board-build {
+    background-image: url('images/blank-spirit-board1.jpg.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -67,11 +67,11 @@ body {
     
 }
 
-.ouija-function div{
+.spirit-function div{
     pointer-events: auto;
 }
 
-.ouija-function div:hover {
+.spirit-function div:hover {
     color: #6ec23aef;
 }
 
@@ -96,7 +96,7 @@ body {
     color: rgba(215, 240, 255, 0.708);
 }
 
-.ouija-game-build{
+.spirit-game-build{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;

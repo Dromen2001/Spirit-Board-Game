@@ -1,9 +1,9 @@
 function modifyContent() {
-  const mainOuijaPage = document.getElementById('main-ouija-page');
+  const mainSpiritPage = document.getElementById('main-spirit-page');
 
 
 
-                                                          // Ouija number and letters array: //
+                                                          // Spirit number and letters array: //
 
   const yesNo = [
     'YES', 'NO',
@@ -245,22 +245,21 @@ function modifyContent() {
 
    
 
-                                                // Main Ouija game build. HTML section: //
-
-    mainOuijaPage.innerHTML = `
+                                                // Main Spirit game build. HTML section: //
+    mainSpiritPage.innerHTML = `
       <header id="rules" class="rules">
-        <div class="ouija-timer" style="font-size: 35px;"></div>
-          <h1 class="ouija-title">Are You There?</h1>
-            <ul class="ouija-rule-main">
-              <li class="ouija-rules">Rule 1: Beat the clock.</li>
-              <li class="ouija-rules">Rule 2: Solve all questions quickly.</li>
-              <li class="ouija-rules">Rule 3: Each correct answer gives bonus time.</li>
-              <li class="ouija-rules">Rule 4: Each hint takes time away.</li>
-              <li class="ouija-rules">Rule 4: Whatever time is left after a finished level will be added to your overall time.</li>
-              <li class="ouija-rules">Rule 6: Answer each question using the Planchette.</li>
-              <li class="ouija-rules">Rule 7: Hello to submit your answer, Good-Bye to clear your answer.</li>
+        <div class="spirit-timer" style="font-size: 35px;"></div>
+          <h1 class="spirit-title">Are You There?</h1>
+            <ul class="spirit-rule-main">
+              <li class="spirit-rules">Rule 1: Beat the clock.</li>
+              <li class="spirit-rules">Rule 2: Solve all questions quickly.</li>
+              <li class="spirit-rules">Rule 3: Each correct answer gives bonus time.</li>
+              <li class="spirit-rules">Rule 4: Each hint takes time away.</li>
+              <li class="spirit-rules">Rule 4: Whatever time is left after a finished level will be added to your overall time.</li>
+              <li class="spirit-rules">Rule 6: Answer each question using the Planchette.</li>
+              <li class="spirit-rules">Rule 7: Hello to submit your answer, Good-Bye to clear your answer.</li>
             </ul>
-        <div class="ouija-game-build">
+        <div class="spirit-game-build">
         <section class="gaming-question"  hidden>
           <div class="truefalse" id="true-false" hidden></div>
           <div class="trivia" id="multi-choice" hidden></div>
@@ -271,20 +270,20 @@ function modifyContent() {
           </header>
           <button id="start-bttn" type="button">Start</button>
           <button id="next-bttn" type="button" hidden>Next</button>
-      <div id="ouija-build">
+      <div id="spirit-build">
       <div id="planchette-glass"></div>
-        <div class="ouija-board-build">
+        <div class="spirit-board-build">
           <div class="board-image">
             <main>
-              <div class="ouija-function" id="ouija-yes-no" type="button" style="display: flex; font-size: 70px; gap:300px; justify-content: center; align-items: center; margin-top: 20px; margin-right: 35px; margin-bottom: 15px;"></div>
+              <div class="spirit-function" id="spirit-yes-no" type="button" style="display: flex; font-size: 70px; gap:300px; justify-content: center; align-items: center; margin-top: 20px; margin-right: 35px; margin-bottom: 15px;"></div>
               <br>
-              <div class="ouija-function" id="ouija-a-m" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
+              <div class="spirit-function" id="spirit-a-m" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
               <br>
-              <div class="ouija-function" id="ouija-n-z" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
+              <div class="spirit-function" id="spirit-n-z" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
               <br>
-              <div class="ouija-function" id="ouija-1-0" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
+              <div class="spirit-function" id="spirit-1-0" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
               <br>
-              <div class="ouija-function" id="ouija-sal" type="button" style="display: flex; gap:250px; font-size: 60px; justify-content: center; align-items: center; margin-left: 85px;"></div>
+              <div class="spirit-function" id="spirit-sal" type="button" style="display: flex; gap:250px; font-size: 60px; justify-content: center; align-items: center; margin-left: 85px;"></div>
               <br>
               <div class="gaming-answer"></div>
             </main>
@@ -298,26 +297,26 @@ function modifyContent() {
 
 
   
-                                                        // Ouija main game play functionaltiy: //
+                                                        // Spirit main game play functionaltiy: //
       // Game Header:
 
-    const ouijaTimer = document.querySelector('.ouija-timer');
-    const ouijaRuleMain = document.querySelector('.ouija-rule-main');
-    const ouijaRules = document.querySelector('.ouija-rules');
+    const spiritTimer = document.querySelector('.spirit-timer');
+    const spiritRuleMain = document.querySelector('.spirit-rule-main');
+    const spiritRules = document.querySelector('.spirit-rules');
 
       // Board Build:
 
-    const ouijaBuild = document.querySelector('#ouija-build');
-    const ouijaBoardBuild = document.querySelector('.ouija-board-build');
-    const ouijaFunction = document.querySelector('.ouija-function');
+    const spiritBuild = document.querySelector('#spirit-build');
+    const spiritBoardBuild = document.querySelector('.spirit-board-build');
+    const spiritFunction = document.querySelector('.spirit-function');
 
       // Lettering Placement:
     
-    const ouijaChoice = document.querySelector('#ouija-yes-no');
-    const ouijaAM = document.querySelector('#ouija-a-m');
-    const ouijaNZ = document.querySelector('#ouija-n-z');
-    const ouijaNum = document.querySelector('#ouija-1-0');
-    const ouijaSalutation = document.querySelector('#ouija-sal');
+    const spiritChoice = document.querySelector('#spirit-yes-no');
+    const spiritAM = document.querySelector('#spirit-a-m');
+    const spiritNZ = document.querySelector('#spirit-n-z');
+    const spiritNum = document.querySelector('#spirit-1-0');
+    const spiritSalutation = document.querySelector('#spirit-sal');
     
       // Planchette:
 
@@ -325,7 +324,7 @@ function modifyContent() {
 
       // Gaming:
     
-    const ouijaGamingBuild = document.querySelector('.ouija-game-build');
+    const spiritGamingBuild = document.querySelector('.spirit-game-build');
     const gameQuestion = document.querySelector('.gaming-question');
     const gameAnswered = document.querySelector('.gaming-answer');
     const startBttn = document.getElementById('start-bttn');
@@ -338,51 +337,51 @@ function modifyContent() {
 
 
     
-                                                         // Ouija Board game placement: //
+                                                         // Spirit Board game placement: //
 
     let agreeDiv = "";
     for (const agree of yesNo) {
-    ouijaChoice.innerHTML = agreeDiv += `<div class="ouija-board-agree">${agree}</div>`;
+    spiritChoice.innerHTML = agreeDiv += `<div class="spirit-board-agree">${agree}</div>`;
     };
 
 
     let alpha1Div = "";
     for (const letterAM of AToM) {
-    ouijaAM.innerHTML =  alpha1Div += `<div class="ouija-board-alpha1Div">${letterAM}</div>`;
+    spiritAM.innerHTML =  alpha1Div += `<div class="spirit-board-alpha1Div">${letterAM}</div>`;
     };
     
 
     let alpha2Div = "";
     for (const letterNZ of NToZ) {
-    ouijaNZ.innerHTML = alpha2Div += `<div class="ouija-board-alpha2Div">${letterNZ}</div>`;
+    spiritNZ.innerHTML = alpha2Div += `<div class="spirit-board-alpha2Div">${letterNZ}</div>`;
     };
     
 
     let numbersDiv = "";
     for (const count of boardNum) {
-    ouijaNum.innerHTML = numbersDiv += `<div class="ouija-board-numbersDiv">${count}</div>`;
+    spiritNum.innerHTML = numbersDiv += `<div class="spirit-board-numbersDiv">${count}</div>`;
     };
 
 
     let saluDiv = "";
     for (const regard of helloGoodbye) {
-    ouijaSalutation.innerHTML = saluDiv += `<div class="ouija-board-salutationP">${regard}</div>`
+    spiritSalutation.innerHTML = saluDiv += `<div class="spirit-board-salutationP">${regard}</div>`
     };
 
 
-    ouijaChoice.addEventListener('click', (e) => {
+    spiritChoice.addEventListener('click', (e) => {
       gameAnswered.innerText += e.target.textContent;
     });
 
-    ouijaAM.addEventListener('click', (e) => {
+    spiritAM.addEventListener('click', (e) => {
       gameAnswered.innerText += e.target.textContent;
     });
     
-    ouijaNZ.addEventListener('click', (e) => {
+    spiritNZ.addEventListener('click', (e) => {
       gameAnswered.innerText += e.target.textContent;
     });
 
-    ouijaNum.addEventListener('click', (e) => {
+    spiritNum.addEventListener('click', (e) => {
       gameAnswered.innerText += e.target.textContent;
     });
 
@@ -406,7 +405,7 @@ function modifyContent() {
       };
         
         
-        ouijaChoice.addEventListener('click', (e) => {
+        spiritChoice.addEventListener('click', (e) => {
             let isUserTrue = e.target.textContent === 'YES' || e.target.textContent === 'NO';
               if (isUserTrue === trueOrFalse[answering].answers[e.target.textContent]) {
                   gameAnswered.innerText = trueOrFalse[answering].answers.answer;
@@ -432,7 +431,7 @@ function modifyContent() {
           choices = choices + 1;
         };
 
-        ouijaAM.addEventListener('click', (e) => {
+        spiritAM.addEventListener('click', (e) => {
           let isUserChosen = e.target.textContent === 'A' || e.target.textContent === 'B' || e.target.textContent === 'C';
           console.log(isUserChosen);
             if (isUserChosen === triviaQuestions[answering].answers[e.target.textContent]) {
@@ -457,7 +456,7 @@ function modifyContent() {
 
         
 
-        ouijaSalutation.addEventListener('click', (e) => {
+        spiritSalutation.addEventListener('click', (e) => {
           if (e.target.textContent !== 'Good-Bye'){
               if (gameAnswered.textContent === theRiddles[answering].answers) {
                   gameAnswered.textContent = '';
@@ -478,7 +477,7 @@ function modifyContent() {
 
 
 
-                                     // Ouija timer section. Begins game and freezes page once time runs out: //
+                                     // Spirit timer section. Begins game and freezes page once time runs out: //
 
      startBttn.addEventListener('click', () => {
       gameQuestion.removeAttribute('hidden');
@@ -488,14 +487,14 @@ function modifyContent() {
        let seconds_left = 300;
 
         const interval = setInterval(() =>{
-          ouijaTimer.innerHTML = formatTime(seconds_left);
+          spiritTimer.innerHTML = formatTime(seconds_left);
           seconds_left--;
           if (seconds_left < 0) {
             clearInterval(interval);
             const freezePage = (() => {
-          if (mainOuijaPage) {
+        if (mainSpiritPage) {
             document.body.style.pointerEvents = 'none';
-            ouijaTimer.innerHTML = "<h1>Time Expired</h1>";
+            spiritTimer.innerHTML = "<h1>Time Expired</h1>";
           }
         })
         const freezeDelay = interval;
@@ -532,7 +531,7 @@ function modifyContent() {
       style.innerHTML = `
         
         @media screen and (width <= 750px) {
-            .ouija-board-build { max-width: 100%; height: auto; }
+            .spirit-board-build { max-width: 100%; height: auto; }
         }
 
         @media (width >= 600px) {
