@@ -394,14 +394,16 @@ let choices = 0;
 let answering = 0;
     
     
-    const beginGameHere = () => {
+
+
       // True or False engine:
-    
+
       const trueFalsing = () => {
           trueFalse.removeAttribute('hidden');
           trueFalse.innerText = trueOrFalse[nextQuestion].statement;
           nextQuestion = nextQuestion + 1;
       };
+
         
         
       spiritChoice.addEventListener('click', (e) => {
@@ -414,6 +416,7 @@ let answering = 0;
             } else {
               gameAnswered.innerText = 'Wrong Answer!';
             }
+            
       });
 
 
@@ -469,25 +472,22 @@ let answering = 0;
             gameAnswered.focus();
           }
         });
-    }
-    
+        
     
     
 
 
-
-                                     // Spirit timer section. Begins game and freezes page once time runs out: //
+                                            // Spirit timer section. Begins game and freezes page once time runs out: //
 
      startBttn.addEventListener('click', () => {
+      // spiritChoice.removeAttribute('hidden');
+      // spiritAM.removeAttribute('hidden');
       gameQuestion.removeAttribute('hidden');
       startBttn.style.display = 'none';
       
       // Begin game;
-       beginGameHere();
-
-      // trueFalsing();
-      // triviaing();
-
+      trueFalsing();
+      // nextBttn.removeAttribute('hidden');
        let seconds_left = 300;
 
         const interval = setInterval(() =>{
@@ -515,9 +515,15 @@ let answering = 0;
           const formattedSeconds = seconds < 60 ?  seconds : minutes;
           return formattedMinutes + ":" + formattedSeconds;
         };
+        nextBttn.addEventListener('click', () => {
+          gameQuestion.removeAttribute('hidden');
+          triviaing();
+        });
      });
 
 
+     
+    
       
                                                                   // Planchette mouser: //
 
