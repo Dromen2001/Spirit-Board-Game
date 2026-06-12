@@ -253,11 +253,10 @@ function modifyContent() {
             <ul class="spirit-rule-main">
               <li class="spirit-rules">Rule 1: Beat the clock.</li>
               <li class="spirit-rules">Rule 2: Solve all questions quickly.</li>
-              <li class="spirit-rules">Rule 3: Each correct answer gives bonus time.</li>
-              <li class="spirit-rules">Rule 4: Each hint takes time away.</li>
+              <li class="spirit-rules">Rule 3: Each hint takes time away.</li>
               <li class="spirit-rules">Rule 4: Whatever time is left after a finished level will be added to your overall time.</li>
-              <li class="spirit-rules">Rule 6: Answer each question using the Planchette.</li>
-              <li class="spirit-rules">Rule 7: Hello to submit your answer, Good-Bye to clear your answer.</li>
+              <li class="spirit-rules">Rule 5: Answer each question using the Planchette.</li>
+              <li class="spirit-rules">Rule 6: Hello to submit your answer, Good-Bye to clear your answer.</li>
             </ul>
         <div class="spirit-game-build">
         <section class="gaming-question"  hidden>
@@ -388,16 +387,16 @@ function modifyContent() {
 
 
 
-                                                                  // Gaming Engine: //
-    
-    let nextQuestion = 0;
-    let choices = 0;
-    let answering = 0;
-    
-    
-    // True or False engine:
+                                                          // Gaming Engine: //
 
-    // const startGameHere = () => {
+let nextQuestion = 0;
+let choices = 0;
+let answering = 0;
+    
+    
+    const beginGameHere = () => {
+      // True or False engine:
+    
       const trueFalsing = () => {
           trueFalse.removeAttribute('hidden');
           trueFalse.innerText = trueOrFalse[nextQuestion].statement;
@@ -405,17 +404,17 @@ function modifyContent() {
       };
         
         
-        spiritChoice.addEventListener('click', (e) => {
-            let isUserTrue = e.target.textContent === 'YES' || e.target.textContent === 'NO';
-              if (isUserTrue === trueOrFalse[answering].answers[e.target.textContent]) {
-                  gameAnswered.innerText = trueOrFalse[answering].answers.answer;
-                  gameAnswered.focus();
-                  trueFalsing();
-                  answering = answering + 1;
-                } else {
-                  gameAnswered.innerText = 'Wrong Answer!';
-                }
-            });
+      spiritChoice.addEventListener('click', (e) => {
+        let isUserTrue = e.target.textContent === 'YES' || e.target.textContent === 'NO';
+          if (isUserTrue === trueOrFalse[answering].answers[e.target.textContent]) {
+              gameAnswered.innerText = trueOrFalse[answering].answers.answer;
+              gameAnswered.focus();
+              trueFalsing();
+              answering = answering + 1;
+            } else {
+              gameAnswered.innerText = 'Wrong Answer!';
+            }
+      });
 
 
 
@@ -470,10 +469,10 @@ function modifyContent() {
             gameAnswered.focus();
           }
         });
-    // }
+    }
     
     
-
+    
 
 
 
@@ -481,8 +480,13 @@ function modifyContent() {
 
      startBttn.addEventListener('click', () => {
       gameQuestion.removeAttribute('hidden');
+      startBttn.style.display = 'none';
+      
+      // Begin game;
+       beginGameHere();
+
       // trueFalsing();
-      triviaing();
+      // triviaing();
 
        let seconds_left = 300;
 
@@ -491,6 +495,8 @@ function modifyContent() {
           seconds_left--;
           if (seconds_left < 0) {
             clearInterval(interval);
+            // Freeze game:
+
             const freezePage = (() => {
         if (mainSpiritPage) {
             document.body.style.pointerEvents = 'none';
@@ -541,8 +547,6 @@ function modifyContent() {
 
       `;
       document.head.appendChild(style);
-
-
 
 
 }
