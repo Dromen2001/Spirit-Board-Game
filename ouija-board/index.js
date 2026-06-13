@@ -268,7 +268,7 @@ function modifyContent() {
         </div>
           </header>
           <button id="start-bttn" type="button">Start</button>
-          <button id="next-bttn" type="button" hidden>Next</button>
+          <button id="next-bttn" type="button">Next</button>
       <div id="spirit-build">
       <div id="planchette-glass"></div>
         <div class="spirit-board-build">
@@ -327,14 +327,14 @@ function modifyContent() {
     const gameQuestion = document.querySelector('.gaming-question');
     const gameAnswered = document.querySelector('.gaming-answer');
     const startBttn = document.getElementById('start-bttn');
-    const nextBttn = document.getElementById('next-button');
+    const nextBttn = document.getElementById('next-bttn');
     const trueFalse = document.getElementById('true-false');
     const multiChoice = document.getElementById('multi-choice');
     const multiOptions = document.getElementById('multi-options');
     const riddleQuestion = document.getElementById('riddle-question');
 
 
-
+    nextBttn.style.display = 'none';
     
                                                          // Spirit Board game placement: //
 
@@ -432,6 +432,7 @@ let answering = 0;
           nextQuestion = nextQuestion + 1;
           choices = choices + 1;
         };
+        
 
         spiritAM.addEventListener('click', (e) => {
           let isUserChosen = e.target.textContent === 'A' || e.target.textContent === 'B' || e.target.textContent === 'C';
@@ -480,14 +481,13 @@ let answering = 0;
                                             // Spirit timer section. Begins game and freezes page once time runs out: //
 
      startBttn.addEventListener('click', () => {
-      // spiritChoice.removeAttribute('hidden');
-      // spiritAM.removeAttribute('hidden');
       gameQuestion.removeAttribute('hidden');
       startBttn.style.display = 'none';
       
       // Begin game;
       trueFalsing();
-      // nextBttn.removeAttribute('hidden');
+      nextBttn.style.display = '';
+
        let seconds_left = 300;
 
         const interval = setInterval(() =>{
@@ -515,13 +515,12 @@ let answering = 0;
           const formattedSeconds = seconds < 60 ?  seconds : minutes;
           return formattedMinutes + ":" + formattedSeconds;
         };
-        nextBttn.addEventListener('click', () => {
-          gameQuestion.removeAttribute('hidden');
-          triviaing();
-        });
-     });
-
-
+      });
+      
+      nextBttn.addEventListener('click', () => {
+        gameQuestion.removeAttribute('hidden');
+        triviaing();
+      });
      
     
       

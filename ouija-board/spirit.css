@@ -96,6 +96,15 @@ body {
     color: rgba(215, 240, 255, 0.708);
 }
 
+#next-bttn {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 30px;
+    background-color: #016fcfae;
+    color: rgba(215, 240, 255, 0.708);
+}
+
 .spirit-game-build{
     display: flex;
     flex-direction: column;
