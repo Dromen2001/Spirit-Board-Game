@@ -419,7 +419,7 @@ let answering = 0;
             
       });
 
-
+      const trueFalseAnswers = trueOrFalse[answering].answers;
 
 
         // Trivia engine:
@@ -486,7 +486,6 @@ let answering = 0;
       
       // Begin game;
       trueFalsing();
-      nextBttn.style.display = '';
 
        let seconds_left = 300;
 
@@ -517,11 +516,15 @@ let answering = 0;
         };
       });
       
-      nextBttn.addEventListener('click', () => {
-        gameQuestion.removeAttribute('hidden');
-        triviaing();
-      });
-     
+
+      if (trueOrFalse[answering].length === trueFalseAnswers) {
+        nextBttn.style.display = 'block';
+      };
+    
+    nextBttn.addEventListener('click', () => {
+      gameQuestion.removeAttribute('hidden');
+      triviaing();
+    });
     
       
                                                                   // Planchette mouser: //
