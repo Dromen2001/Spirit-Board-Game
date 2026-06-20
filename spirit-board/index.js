@@ -335,6 +335,8 @@ function modifyContent() {
 
 
     nextBttn.style.display = 'none';
+
+    
     
                                                          // Spirit Board game placement: //
 
@@ -514,6 +516,17 @@ let answering = 0;
           const formattedSeconds = seconds < 60 ?  seconds : minutes;
           return formattedMinutes + ":" + formattedSeconds;
         };
+
+                                                            // Planchette mouser: //
+
+      const pointerImg = document.querySelector('.planchette-cursor');
+
+        window.addEventListener('mousemove', e => {
+            // Adjust -25 to center the image based on its size
+            pointerImg.style.left = e.pageX - 55 + 'px';
+            pointerImg.style.top = e.pageY - 90 + 'px';
+        });
+
       });
       
 
@@ -527,15 +540,7 @@ let answering = 0;
     });
     
       
-                                                                  // Planchette mouser: //
 
-      const pointerImg = document.querySelector('.planchette-cursor');
-
-        window.addEventListener('mousemove', e => {
-            // Adjust -25 to center the image based on its size
-            pointerImg.style.left = e.pageX - 55 + 'px';
-            pointerImg.style.top = e.pageY - 90 + 'px';
-        });
 
 
 
