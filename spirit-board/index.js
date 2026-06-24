@@ -442,6 +442,7 @@ let answering = 0;
           gameAnswered.focus();
           triviaing(nextQuestion = 0, choices = 0, triviaAnswer(answering = 0));
           nextBttn.style.display = 'none';
+          seconds_left += 15;
         });
       };
 
@@ -486,6 +487,7 @@ let answering = 0;
             gameAnswered.focus();
             riddling(nextQuestion = 0, choices = 0, riddleAnswer(answering = 0));
             nextBttn2.style.display = 'none';
+          seconds_left += 25;
           });
         };
 
@@ -523,7 +525,7 @@ let answering = 0;
         
     
     
-
+let seconds_left = 300;
 
                                     // Spirit timer section. Begins game and freezes page once time runs out: //
 
@@ -539,7 +541,7 @@ let answering = 0;
 
       // Timer Build:
 
-       let seconds_left = 300;
+       
 
         const interval = setInterval(() =>{
           spiritTimer.innerHTML = formatTime(seconds_left);
@@ -548,8 +550,8 @@ let answering = 0;
             clearInterval(interval);
             // Freeze game:
 
-            const freezePage = (() => {
-        if (mainSpiritPage) {
+        const freezePage = (() => {
+          if (mainSpiritPage) {
             document.body.style.pointerEvents = 'none';
             spiritTimer.innerHTML = "<h1>Time Expired</h1>";
           }
