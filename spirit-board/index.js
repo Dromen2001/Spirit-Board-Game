@@ -277,6 +277,7 @@ function modifyContent() {
           </header>
           <button id="start-bttn" type="button">Start</button>
           <button id="next-bttn" type="button">Next</button>
+          <button id="next-bttn-two" type="button">Next</button>
       <div id="spirit-build">
       <div id="planchette-glass"></div>
         <div class="spirit-board-build">
@@ -336,6 +337,7 @@ function modifyContent() {
     const gameAnswered = document.querySelector('.gaming-answer');
     const startBttn = document.getElementById('start-bttn');
     const nextBttn = document.getElementById('next-bttn');
+    const nextBttn2 = document.getElementById('next-bttn-two');
     const trueFalse = document.getElementById('true-false');
     const multiChoice = document.getElementById('multi-choice');
     const multiOptions = document.getElementById('multi-options');
@@ -343,6 +345,7 @@ function modifyContent() {
 
 
     nextBttn.style.display = 'none';
+    nextBttn2.style.display = 'none';
 
     
     
@@ -429,7 +432,6 @@ let answering = 0;
         });
       };
 
-
       const nextBttnFunc = () => {
         if (answering === 13){
             nextBttn.style.display = 'block';
@@ -438,10 +440,11 @@ let answering = 0;
           gameQuestion.removeAttribute('hidden');
           gameAnswered.textContent = '';
           gameAnswered.focus();
-          triviaing();
+          triviaing(nextQuestion = 0, choices = 0, triviaAnswer(answering = 0));
           nextBttn.style.display = 'none';
         });
       };
+
 
 
 
@@ -464,7 +467,7 @@ let answering = 0;
                 gameAnswered.innerText = '';
                 gameAnswered.focus();
                 triviaing();
-                // console.log(gameAnswered);
+                console.log(gameAnswered);
                 answering++;
                 nextBttnFunc2();
               } else {
@@ -474,20 +477,22 @@ let answering = 0;
         };
 
         const nextBttnFunc2 = () => {
-        if (answering === trueOrFalse[answering].answers.answer.length){
-            nextBttn.style.display = 'block';
-          }
-        nextBttn.addEventListener('click', () => {
-          gameQuestion.removeAttribute('hidden');
-          gameAnswered.textContent = '';
-          gameAnswered.focus();
-          triviaing(triviaAnswer());
-          nextBttn.style.display = 'none';
-        });
-      };
+          if (answering === 5){
+              nextBttn2.style.display = 'block';
+            }
+          nextBttn2.addEventListener('click', () => {
+            gameQuestion.removeAttribute('hidden');
+            gameAnswered.textContent = '';
+            gameAnswered.focus();
+            riddling(nextQuestion = 0, choices = 0, riddleAnswer(answering = 0));
+            nextBttn2.style.display = 'none';
+          });
+        };
+
+
+
 
         // Riddle engine:
-
 
         const riddling = () => {
           riddleQuestion.removeAttribute('hidden');
