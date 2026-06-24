@@ -18,7 +18,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
-    cursor: none; /* Hide default */
+    
 }
 
 .rules{
@@ -50,6 +50,7 @@ body {
     position: absolute;
     pointer-events: none; /* Ensure it doesn't interfere with clicks */
     z-index: 9999;
+    cursor: none; /* Hide default */
 }
 
 .spirit-board-build {
@@ -122,8 +123,9 @@ body {
     align-items: center;
     margin-left: 15px;
     color: #457c22ef; 
+    background-color: rgba(0, 255, 47, 0.381);
     -webkit-text-stroke: 1.70px black;
-    font-size: 65px;
+    font-size: 35px;
 }
 
 

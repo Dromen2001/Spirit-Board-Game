@@ -112,7 +112,6 @@ function modifyContent() {
     },
     {
       statement: "Bats are common Halloween symbols because they were thought to communicate with spirits.",
-      // choice: {correct: "YES", incorrect: "NO"},
       answers: {
                 YES: true,
                 answer: "TRUE.",
@@ -124,6 +123,9 @@ function modifyContent() {
                 NO: true,
                 answer: "FALSE. It\’s from Shakespeare\’s Macbeth.",
                },
+    },
+    {
+      statement:"",
     },
   ];
 
@@ -197,6 +199,9 @@ function modifyContent() {
         C: true,
       },
     },
+    {
+      triviaQuestion: "",
+    },
   ];
 
 
@@ -239,6 +244,9 @@ function modifyContent() {
       riddle: 'I am a door through which all footsteps fall, A final silence that will answer every call. What am I?',
       answers: 'DEATH',
     },
+    {
+      riddle: "",
+    },
   ];
 
 
@@ -274,6 +282,7 @@ function modifyContent() {
         <div class="spirit-board-build">
           <div class="board-image">
             <main>
+            <div class="gaming-answer""></div>
               <div class="spirit-function" id="spirit-yes-no" type="button" style="display: flex; font-size: 70px; gap:300px; justify-content: center; align-items: center; margin-top: 20px; margin-right: 35px; margin-bottom: 15px;"></div>
               <br>
               <div class="spirit-function" id="spirit-a-m" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
@@ -284,7 +293,6 @@ function modifyContent() {
               <br>
               <div class="spirit-function" id="spirit-sal" type="button" style="display: flex; gap:250px; font-size: 60px; justify-content: center; align-items: center; margin-left: 85px;"></div>
               <br>
-              <div class="gaming-answer"></div>
             </main>
           </div>
         </div>
@@ -395,33 +403,46 @@ let nextQuestion = 0;
 let choices = 0;
 let answering = 0;
     
-    
-
+  
 
       // True or False engine:
 
       const trueFalsing = () => {
           trueFalse.removeAttribute('hidden');
           trueFalse.innerText = trueOrFalse[nextQuestion].statement;
-          nextQuestion = nextQuestion + 1;
+          nextQuestion++;
       };
 
-        
-        
-      spiritChoice.addEventListener('click', (e) => {
-        let isUserTrue = e.target.textContent === 'YES' || e.target.textContent === 'NO';
-          if (isUserTrue === trueOrFalse[answering].answers[e.target.textContent]) {
-              gameAnswered.innerText = trueOrFalse[answering].answers.answer;
-              gameAnswered.focus();
-              trueFalsing();
-              answering = answering + 1;
-            } else {
-              gameAnswered.innerText = 'Wrong Answer!';
-            }
-            
-      });
+      const trueFalseAnswering = () => {
+        spiritChoice.addEventListener('click', (e) => {
+          let isUserTrue = e.target.textContent === 'YES' || e.target.textContent === 'NO';
+            if (isUserTrue === trueOrFalse[answering].answers[e.target.textContent]) {
+                gameAnswered.innerText = trueOrFalse[answering].answers.answer;
+                gameAnswered.focus();
+                trueFalsing();
+                answering++;
+                nextBttnFunc();
+              } else {
+                gameAnswered.innerText = 'Wrong Answer!';
+              }
+              
+        });
+      };
 
-      const trueFalseAnswers = trueOrFalse[answering].answers;
+
+      const nextBttnFunc = () => {
+        if (answering === 13){
+            nextBttn.style.display = 'block';
+          }
+        nextBttn.addEventListener('click', () => {
+          gameQuestion.removeAttribute('hidden');
+          gameAnswered.textContent = '';
+          gameAnswered.focus();
+          triviaing();
+          nextBttn.style.display = 'none';
+        });
+      };
+
 
 
         // Trivia engine:
@@ -430,25 +451,40 @@ let answering = 0;
           multiChoice.removeAttribute('hidden');
           multiChoice.innerText = triviaQuestions[nextQuestion].triviaQuestion;
           multiOptions.innerHTML = triviaQuestions[choices].multipleChoice.map(choice =>  `<li>${choice.id}:  ${choice.questionnaire}</li>`).join(""); 
-          
-          nextQuestion = nextQuestion + 1;
-          choices = choices + 1;
+          nextQuestion++;
+          choices++;
         };
         
 
-        spiritAM.addEventListener('click', (e) => {
-          let isUserChosen = e.target.textContent === 'A' || e.target.textContent === 'B' || e.target.textContent === 'C';
-          console.log(isUserChosen);
-            if (isUserChosen === triviaQuestions[answering].answers[e.target.textContent]) {
-              gameAnswered.innerText = '';
-              gameAnswered.focus();
-              triviaing();
-              console.log(gameAnswered);
-              answering = answering + 1;
-            } else {
-              gameAnswered.innerText = 'Wrong Answer!';
-            }
+        const triviaAnswer = () => {
+          spiritAM.addEventListener('click', (e) => {
+            let isUserChosen = e.target.textContent === 'A' || e.target.textContent === 'B' || e.target.textContent === 'C';
+            console.log(isUserChosen);
+              if (isUserChosen === triviaQuestions[answering].answers[e.target.textContent]) {
+                gameAnswered.innerText = '';
+                gameAnswered.focus();
+                triviaing();
+                // console.log(gameAnswered);
+                answering++;
+                nextBttnFunc2();
+              } else {
+                gameAnswered.innerText = 'Wrong Answer!';
+              }
+          });
+        };
+
+        const nextBttnFunc2 = () => {
+        if (answering === trueOrFalse[answering].answers.answer.length){
+            nextBttn.style.display = 'block';
+          }
+        nextBttn.addEventListener('click', () => {
+          gameQuestion.removeAttribute('hidden');
+          gameAnswered.textContent = '';
+          gameAnswered.focus();
+          triviaing(triviaAnswer());
+          nextBttn.style.display = 'none';
         });
+      };
 
         // Riddle engine:
 
@@ -456,38 +492,47 @@ let answering = 0;
         const riddling = () => {
           riddleQuestion.removeAttribute('hidden');
           riddleQuestion.innerText = theRiddles[nextQuestion].riddle;
-          nextQuestion = nextQuestion + 1;
+          nextQuestion++;
         };
 
         
+        const riddleAnswer = () => {
+          spiritSalutation.addEventListener('click', (e) => {
+            if (e.target.textContent !== 'Good-Bye'){
+                if (gameAnswered.textContent === theRiddles[answering].answers) {
+                    gameAnswered.textContent = '';
+                    gameAnswered.focus();
+                    answering++;
+                  } else {
+                    gameAnswered.innerText = 'Wrong Answer!';
+                  }
+            } else {
+              gameAnswered.textContent = '';
+              gameAnswered.focus();
+            }
+          });
+        };
 
-        spiritSalutation.addEventListener('click', (e) => {
-          if (e.target.textContent !== 'Good-Bye'){
-              if (gameAnswered.textContent === theRiddles[answering].answers) {
-                  gameAnswered.textContent = '';
-                  gameAnswered.focus();
-                  answering = answering + 1;
-                } else {
-                  gameAnswered.innerText = 'Wrong Answer!';
-                }
-          } else {
-            gameAnswered.textContent = '';
-            gameAnswered.focus();
-          }
-        });
+
+      
         
     
     
 
 
-                                            // Spirit timer section. Begins game and freezes page once time runs out: //
+                                    // Spirit timer section. Begins game and freezes page once time runs out: //
 
      startBttn.addEventListener('click', () => {
       gameQuestion.removeAttribute('hidden');
       startBttn.style.display = 'none';
       
-      // Begin game;
-      trueFalsing();
+      // Begin game:
+
+          
+      trueFalsing(trueFalseAnswering());
+
+
+      // Timer Build:
 
        let seconds_left = 300;
 
@@ -528,17 +573,6 @@ let answering = 0;
         });
 
       });
-      
-
-      if (trueOrFalse[answering].length === trueFalseAnswers) {
-        nextBttn.style.display = 'block';
-      };
-    
-    nextBttn.addEventListener('click', () => {
-      gameQuestion.removeAttribute('hidden');
-      triviaing();
-    });
-    
       
 
 
