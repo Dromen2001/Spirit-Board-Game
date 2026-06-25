@@ -1,4 +1,4 @@
-![a picture of a black with its paws on a spirit board](images/spirit-board-black-cat.jpg)
+![a picture of a black with its paws on a spirit board](spirit-board/images/spirit-board-black-cat.jpg)
 
 # Are you There?
 
@@ -13,7 +13,6 @@ The game will present 3 riddles in which to solve within a certain time paramete
 HTML
 CSS
 JavaScript
-
 
 ## Next Steps
 

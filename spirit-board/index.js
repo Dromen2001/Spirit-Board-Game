@@ -405,8 +405,21 @@ function modifyContent() {
 let nextQuestion = 0;
 let choices = 0;
 let answering = 0;
+
+
+
+      // Answer Clearing
+
+      spiritSalutation.addEventListener('click', (e) => {
+        if (e.target.textContent === 'Good-Bye') {
+            gameAnswered.textContent = '';
+            gameAnswered.focus();
+            nextQuestion = 0;
+            choices = 0;
+            answering = 0;
+          };
+      });
     
-  
 
       // True or False engine:
 
@@ -427,8 +440,7 @@ let answering = 0;
                 nextBttnFunc();
               } else {
                 gameAnswered.innerText = 'Wrong Answer!';
-              }
-              
+              };
         });
       };
 
@@ -436,13 +448,15 @@ let answering = 0;
         if (answering === 13){
             nextBttn.style.display = 'block';
           }
-        nextBttn.addEventListener('click', () => {
+        nextBttn.addEventListener('click', (e) => {
           gameQuestion.removeAttribute('hidden');
-          gameAnswered.textContent = '';
+          gameAnswered.innerText = '';
           gameAnswered.focus();
-          triviaing(nextQuestion = 0, choices = 0, triviaAnswer(answering = 0));
+          triviaing(triviaAnswer(nextQuestion = 0, choices = 0, answering = 0));
           nextBttn.style.display = 'none';
           seconds_left += 15;
+          trueFalse.style.display = 'none';
+          trueFalseAnswering();
         });
       };
 
@@ -473,7 +487,7 @@ let answering = 0;
                 nextBttnFunc2();
               } else {
                 gameAnswered.innerText = 'Wrong Answer!';
-              }
+              };
           });
         };
 
@@ -487,7 +501,10 @@ let answering = 0;
             gameAnswered.focus();
             riddling(nextQuestion = 0, choices = 0, riddleAnswer(answering = 0));
             nextBttn2.style.display = 'none';
-          seconds_left += 25;
+            seconds_left += 25;
+            multiChoice.style.display = 'none';
+            multiOptions.style.display = 'none';
+            triviaAnswer(0);
           });
         };
 
@@ -525,9 +542,9 @@ let answering = 0;
         
     
     
-let seconds_left = 300;
-
-                                    // Spirit timer section. Begins game and freezes page once time runs out: //
+                                      // Spirit timer section. Begins game and freezes page once time runs out: //
+        
+        let seconds_left = 300;
 
      startBttn.addEventListener('click', () => {
       gameQuestion.removeAttribute('hidden');
