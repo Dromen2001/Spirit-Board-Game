@@ -2,11 +2,11 @@
 
 # Are you There?
 
-This section we explore The basement area of the house and discover an ouija board. We have to solve the riddles and place the answers into the ouija board in order to leave the basement. This is a timed event and you will need to solve the riddles before the timer runs out. There will be hints available amongst other items to look at for clues about the bigger picture.
+This online trivia/board game represents a sppoky halloween take on trivia and board games. I want to challenge your knowledge of all things spooky and my favorite season of the year. I have built this game as a way to share that love and spread some knowledge about the holiday.
 
 ## MVP
 
-The game will present 3 riddles in which to solve within a certain time parameter. Once the 3 riddles are solved you will exit the basement into the bedroom.
+There are 3 sections to this game. A true of false section, trivia section, and a riddle section. You will be timed during each section. A conpleted section will add more time to your next section. Game will not start until you click the start button. Use the planchette to answer all items.
 
 ## Technologies being used
 
@@ -16,5 +16,6 @@ JavaScript
 
 ## Next Steps
 
+* Building a more robust game that will be multiplayer and more game sections to play based on specific stories as well as trivia and riddle sections.
 * Building the rest of the game levels involved with the online escape room.
 * Continuing to modernize the puzzle pages feature and props.
