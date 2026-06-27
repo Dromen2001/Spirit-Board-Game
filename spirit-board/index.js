@@ -283,7 +283,7 @@ function modifyContent() {
         <div class="spirit-board-build">
           <div class="board-image">
             <main>
-            <div class="gaming-answer""></div>
+            <div class="gaming-answer"" tabindex="-1"></div>
               <div class="spirit-function" id="spirit-yes-no" type="button" style="display: flex; font-size: 70px; gap:300px; justify-content: center; align-items: center; margin-top: 20px; margin-right: 35px; margin-bottom: 15px;"></div>
               <br>
               <div class="spirit-function" id="spirit-a-m" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
@@ -406,13 +406,14 @@ let nextQuestion = 0;
 let choices = 0;
 let answering = 0;
 
-
+      const controller1 = new AbortController();
+      const controller2 = new AbortController();
 
       // Answer Clearing
 
       spiritSalutation.addEventListener('click', (e) => {
         if (e.target.textContent === 'Good-Bye') {
-            gameAnswered.textContent = '';
+            gameAnswered.innerHTML = '';
             gameAnswered.focus();
             nextQuestion = 0;
             choices = 0;
@@ -441,7 +442,7 @@ let answering = 0;
               } else {
                 gameAnswered.innerText = 'Wrong Answer!';
               };
-        });
+        }, { signal: controller1.signal });
       };
 
       const nextBttnFunc = () => {
@@ -450,13 +451,14 @@ let answering = 0;
           }
         nextBttn.addEventListener('click', (e) => {
           gameQuestion.removeAttribute('hidden');
-          gameAnswered.innerText = '';
+          gameAnswered.innerHTML = '';
           gameAnswered.focus();
-          triviaing(triviaAnswer(nextQuestion = 0, choices = 0, answering = 0));
+          triviaing(nextQuestion = 0, choices = 0, triviaAnswer(answering = 0));
           nextBttn.style.display = 'none';
           seconds_left += 15;
-          trueFalse.style.display = 'none';
-          trueFalseAnswering();
+          // trueFalse.removeEventListener('click');
+          // trueFalseAnswering();
+          controller1.abort();
         });
       };
 
@@ -479,7 +481,7 @@ let answering = 0;
             let isUserChosen = e.target.textContent === 'A' || e.target.textContent === 'B' || e.target.textContent === 'C';
             console.log(isUserChosen);
               if (isUserChosen === triviaQuestions[answering].answers[e.target.textContent]) {
-                gameAnswered.innerText = '';
+                gameAnswered.innerHTML = '';
                 gameAnswered.focus();
                 triviaing();
                 console.log(gameAnswered);
@@ -488,7 +490,7 @@ let answering = 0;
               } else {
                 gameAnswered.innerText = 'Wrong Answer!';
               };
-          });
+          }, { signal: controller2.signal });
         };
 
         const nextBttnFunc2 = () => {
@@ -497,7 +499,7 @@ let answering = 0;
             }
           nextBttn2.addEventListener('click', () => {
             gameQuestion.removeAttribute('hidden');
-            gameAnswered.textContent = '';
+            gameAnswered.innerHTML = '';
             gameAnswered.focus();
             riddling(nextQuestion = 0, choices = 0, riddleAnswer(answering = 0));
             nextBttn2.style.display = 'none';
@@ -505,6 +507,7 @@ let answering = 0;
             multiChoice.style.display = 'none';
             multiOptions.style.display = 'none';
             triviaAnswer(0);
+            controller2.abort();
           });
         };
 
@@ -524,14 +527,14 @@ let answering = 0;
           spiritSalutation.addEventListener('click', (e) => {
             if (e.target.textContent !== 'Good-Bye'){
                 if (gameAnswered.textContent === theRiddles[answering].answers) {
-                    gameAnswered.textContent = '';
+                    gameAnswered.innerHTML = '';
                     gameAnswered.focus();
                     answering++;
                   } else {
                     gameAnswered.innerText = 'Wrong Answer!';
                   }
             } else {
-              gameAnswered.textContent = '';
+              gameAnswered.innerHTML = '';
               gameAnswered.focus();
             }
           });
