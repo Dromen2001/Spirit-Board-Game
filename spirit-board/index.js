@@ -200,7 +200,11 @@ function modifyContent() {
       },
     },
     {
-      triviaQuestion: "",
+      triviaQuestion: [""],
+      multiChoice: [],
+      answers: {
+        next: true,
+      },
     },
   ];
 
@@ -456,8 +460,6 @@ let answering = 0;
           triviaing(nextQuestion = 0, choices = 0, triviaAnswer(answering = 0));
           nextBttn.style.display = 'none';
           seconds_left += 15;
-          // trueFalse.removeEventListener('click');
-          // trueFalseAnswering();
           controller1.abort();
         });
       };
@@ -470,7 +472,7 @@ let answering = 0;
         const triviaing = () => {
           multiChoice.removeAttribute('hidden');
           multiChoice.innerText = triviaQuestions[nextQuestion].triviaQuestion;
-          multiOptions.innerHTML = triviaQuestions[choices].multipleChoice.map(choice =>  `<li>${choice.id}:  ${choice.questionnaire}</li>`).join(""); 
+          multiOptions.innerHTML = triviaQuestions[choices].multipleChoice?.map(choice =>  `<li>${choice.id}:  ${choice.questionnaire}</li>`).join(""); 
           nextQuestion++;
           choices++;
         };
@@ -480,7 +482,10 @@ let answering = 0;
           spiritAM.addEventListener('click', (e) => {
             let isUserChosen = e.target.textContent === 'A' || e.target.textContent === 'B' || e.target.textContent === 'C';
             console.log(isUserChosen);
-              if (isUserChosen === triviaQuestions[answering].answers[e.target.textContent]) {
+            console.log('Current Index:', answering);
+            console.log('Target Text:', e.target.textContent);
+            console.log('Current Question Object:', triviaQuestions[answering]);
+              if (isUserChosen === triviaQuestions[answering]?.answers[e.target.textContent]) {
                 gameAnswered.innerHTML = '';
                 gameAnswered.focus();
                 triviaing();
@@ -494,7 +499,7 @@ let answering = 0;
         };
 
         const nextBttnFunc2 = () => {
-          if (answering === 5){
+          if (answering === 6){
               nextBttn2.style.display = 'block';
             }
           nextBttn2.addEventListener('click', () => {
@@ -529,6 +534,7 @@ let answering = 0;
                 if (gameAnswered.textContent === theRiddles[answering].answers) {
                     gameAnswered.innerHTML = '';
                     gameAnswered.focus();
+                    riddling();
                     answering++;
                   } else {
                     gameAnswered.innerText = 'Wrong Answer!';
