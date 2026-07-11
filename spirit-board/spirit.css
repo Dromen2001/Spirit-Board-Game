@@ -106,6 +106,14 @@ body {
     color: rgba(215, 240, 255, 0.708);
 }
 
+.gaming-question{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #016fcfe8;
+    
+}
+
 
 .spirit-game-build{
     display: flex;

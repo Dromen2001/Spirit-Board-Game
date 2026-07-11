@@ -201,7 +201,7 @@ function modifyContent() {
     },
     {
       triviaQuestion: [""],
-      multiChoice: [],
+      multiChoice: [""],
       answers: {
         next: true,
       },
@@ -287,7 +287,7 @@ function modifyContent() {
         <div class="spirit-board-build">
           <div class="board-image">
             <main>
-            <div class="gaming-answer"" tabindex="-1"></div>
+            <div class="gaming-answer"></div>
               <div class="spirit-function" id="spirit-yes-no" type="button" style="display: flex; font-size: 70px; gap:300px; justify-content: center; align-items: center; margin-top: 20px; margin-right: 35px; margin-bottom: 15px;"></div>
               <br>
               <div class="spirit-function" id="spirit-a-m" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
@@ -419,9 +419,6 @@ let answering = 0;
         if (e.target.textContent === 'Good-Bye') {
             gameAnswered.innerHTML = '';
             gameAnswered.focus();
-            nextQuestion = 0;
-            choices = 0;
-            answering = 0;
           };
       });
     
@@ -506,12 +503,12 @@ let answering = 0;
             gameQuestion.removeAttribute('hidden');
             gameAnswered.innerHTML = '';
             gameAnswered.focus();
-            riddling(nextQuestion = 0, choices = 0, riddleAnswer(answering = 0));
+            riddling(nextQuestion = 0, riddleAnswer(answering = 0));
             nextBttn2.style.display = 'none';
             seconds_left += 25;
             multiChoice.style.display = 'none';
             multiOptions.style.display = 'none';
-            triviaAnswer(0);
+            // triviaAnswer(0);
             controller2.abort();
           });
         };
@@ -558,11 +555,14 @@ let answering = 0;
      startBttn.addEventListener('click', () => {
       gameQuestion.removeAttribute('hidden');
       startBttn.style.display = 'none';
+      spiritRuleMain.style.display = 'none';
       
       // Begin game:
 
           
-      trueFalsing(trueFalseAnswering());
+      // trueFalsing(trueFalseAnswering());
+      triviaing(triviaAnswer());
+      // riddling(riddleAnswer());
 
 
       // Timer Build:
