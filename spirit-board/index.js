@@ -410,6 +410,8 @@ let nextQuestion = 0;
 let choices = 0;
 let answering = 0;
 
+      // Stop each game engine section
+
       const controller1 = new AbortController();
       const controller2 = new AbortController();
 
@@ -454,7 +456,7 @@ let answering = 0;
           gameQuestion.removeAttribute('hidden');
           gameAnswered.innerHTML = '';
           gameAnswered.focus();
-          triviaing(nextQuestion = 0, choices = 0, triviaAnswer(answering = 0));
+          triviaing(nextQuestion = 0, choices = 0, answering = 0, triviaAnswer());
           nextBttn.style.display = 'none';
           seconds_left += 15;
           controller1.abort();
@@ -503,7 +505,7 @@ let answering = 0;
             gameQuestion.removeAttribute('hidden');
             gameAnswered.innerHTML = '';
             gameAnswered.focus();
-            riddling(nextQuestion = 0, riddleAnswer(answering = 0));
+            riddling(nextQuestion = 0, answering = 0, riddleAnswer());
             nextBttn2.style.display = 'none';
             seconds_left += 25;
             multiChoice.style.display = 'none';
