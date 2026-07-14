@@ -126,6 +126,10 @@ function modifyContent() {
     },
     {
       statement:"",
+      answers: {
+        true: true,
+        answer: "",
+      },
     },
   ];
 
@@ -420,7 +424,6 @@ let answering = 0;
       spiritSalutation.addEventListener('click', (e) => {
         if (e.target.textContent === 'Good-Bye') {
             gameAnswered.innerHTML = '';
-            gameAnswered.focus();
           };
       });
     
@@ -437,8 +440,8 @@ let answering = 0;
         spiritChoice.addEventListener('click', (e) => {
           let isUserTrue = e.target.textContent === 'YES' || e.target.textContent === 'NO';
             if (isUserTrue === trueOrFalse[answering].answers[e.target.textContent]) {
+              console.log(trueOrFalse[answering].answers.answer);
                 gameAnswered.innerText = trueOrFalse[answering].answers.answer;
-                gameAnswered.focus();
                 trueFalsing();
                 answering++;
                 nextBttnFunc();
@@ -455,7 +458,6 @@ let answering = 0;
         nextBttn.addEventListener('click', (e) => {
           gameQuestion.removeAttribute('hidden');
           gameAnswered.innerHTML = '';
-          gameAnswered.focus();
           triviaing(nextQuestion = 0, choices = 0, answering = 0, triviaAnswer());
           nextBttn.style.display = 'none';
           seconds_left += 15;
@@ -486,7 +488,6 @@ let answering = 0;
             console.log('Current Question Object:', triviaQuestions[answering]);
               if (isUserChosen === triviaQuestions[answering]?.answers[e.target.textContent]) {
                 gameAnswered.innerHTML = '';
-                gameAnswered.focus();
                 triviaing();
                 console.log(gameAnswered);
                 answering++;
@@ -504,7 +505,6 @@ let answering = 0;
           nextBttn2.addEventListener('click', () => {
             gameQuestion.removeAttribute('hidden');
             gameAnswered.innerHTML = '';
-            gameAnswered.focus();
             riddling(nextQuestion = 0, answering = 0, riddleAnswer());
             nextBttn2.style.display = 'none';
             seconds_left += 25;
@@ -532,7 +532,6 @@ let answering = 0;
             if (e.target.textContent !== 'Good-Bye'){
                 if (gameAnswered.textContent === theRiddles[answering].answers) {
                     gameAnswered.innerHTML = '';
-                    gameAnswered.focus();
                     riddling();
                     answering++;
                   } else {
@@ -540,7 +539,6 @@ let answering = 0;
                   }
             } else {
               gameAnswered.innerHTML = '';
-              gameAnswered.focus();
             }
           });
         };
@@ -562,8 +560,8 @@ let answering = 0;
       // Begin game:
 
           
-      // trueFalsing(trueFalseAnswering());
-      triviaing(triviaAnswer());
+      trueFalsing(trueFalseAnswering());
+      // triviaing(triviaAnswer());
       // riddling(riddleAnswer());
 
 
