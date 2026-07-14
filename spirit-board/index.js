@@ -264,8 +264,8 @@ function modifyContent() {
                                                 // Main Spirit game build. HTML section: //
     mainSpiritPage.innerHTML = `
       <header id="rules" class="rules">
-        <div class="spirit-timer" style="font-size: 35px;"></div>
-          <h1 class="spirit-title">Are You There?</h1>
+      <h1 class="spirit-title">Are You There?</h1>
+      <div class="spirit-timer" style="font-size: 80px; background-color: #004480;"></div>
             <ul class="spirit-rule-main">
               <li class="spirit-rules">Rule 1: Beat the clock.</li>
               <li class="spirit-rules">Rule 2: Solve all questions quickly.</li>
