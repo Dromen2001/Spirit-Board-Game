@@ -108,6 +108,8 @@ body {
 
 .gaming-question{
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     background-color: #016fcfe8;
