@@ -19,3 +19,15 @@ JavaScript
 * Building a more robust game that will be multiplayer and more game sections to play based on specific stories as well as trivia and riddle sections.
 * Building the rest of the game levels involved with the online escape room.
 * Continuing to modernize the puzzle pages feature and props.
+
+
+## Notes
+sections will be ordered
+What are the same components of every section.
+
+- question then answwer 
+- spirit board
+- planchette
+- timer 
+- title
+- background image
