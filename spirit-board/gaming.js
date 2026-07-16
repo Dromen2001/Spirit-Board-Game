@@ -1,0 +1,10 @@
+export const spiritGamingBuild = document.querySelector(".spirit-game-build");
+export const gameQuestion = document.querySelector(".gaming-question");
+export const gameAnswered = document.querySelector(".gaming-answer");
+export const startBttn = document.getElementById("start-bttn");
+export const nextBttn = document.getElementById("next-bttn");
+export const nextBttn2 = document.getElementById("next-bttn-two");
+export const trueFalse = document.getElementById("true-false");
+export const multiChoice = document.getElementById("multi-choice");
+export const multiOptions = document.getElementById("multi-options");
+export const riddleQuestion = document.getElementById("riddle-question");

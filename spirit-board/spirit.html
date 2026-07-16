@@ -4,11 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="spirit.css">
-    <script defer src="index.js"></script>
+    <script type="module" defer src="index.js"></script>
     <title>Spirit Board Game</title>
 </head>
 <body>
-    <div id="main-spirit-page"></div>
+    <div id="main-spirit-page">
+        <header id="rules" class="rules">
+      <h1 class="spirit-title">Are You There?</h1>
+      <div class="spirit-timer" style="font-size: 80px; background-color: #004480;"></div>
+            <ul class="spirit-rule-main">
+              <li class="spirit-rules">Rule 1: Beat the clock.</li>
+              <li class="spirit-rules">Rule 2: Solve all questions quickly.</li>
+              <li class="spirit-rules">Rule 3: Each hint takes time away.</li>
+              <li class="spirit-rules">Rule 4: Whatever time is left after a finished level will be added to your overall time.</li>
+              <li class="spirit-rules">Rule 5: Answer each question using the Planchette.</li>
+              <li class="spirit-rules">Rule 6: Hello to submit your answer, Good-Bye to clear your answer.</li>
+            </ul>
+        <div class="spirit-game-build">
+        <section class="gaming-question"  hidden>
+          <div class="truefalse" id="true-false" hidden></div>
+          <ul class="trivia" id="multi-choice" hidden></ul>
+          <div id="multi-options"></div>
+          <div class="riddled" id="riddle-question" hidden></div>
+          </section>
+        </div>
+          </header>
+          <button id="start-bttn" type="button">Start</button>
+          <button id="next-bttn" type="button">Next</button>
+          <button id="next-bttn-two" type="button">Next</button>
+      <div id="spirit-build">
+      <div id="planchette-glass"></div>
+        <div class="spirit-board-build">
+          <div class="board-image">
+            <main>
+            <div class="gaming-answer"></div>
+              <div class="spirit-function" id="spirit-yes-no" type="button" style="display: flex; font-size: 70px; gap:300px; justify-content: center; align-items: center; margin-top: 20px; margin-right: 35px; margin-bottom: 15px;"></div>
+              <br>
+              <div class="spirit-function" id="spirit-a-m" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
+              <br>
+              <div class="spirit-function" id="spirit-n-z" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
+              <br>
+              <div class="spirit-function" id="spirit-1-0" type="button" style="display: flex; font-size: 45px; gap:50px; justify-content: center; align-items: center;"></div>
+              <br>
+              <div class="spirit-function" id="spirit-sal" type="button" style="display: flex; gap:250px; font-size: 60px; justify-content: center; align-items: center; margin-left: 85px;"></div>
+              <br>
+            </main>
+          </div>
+        </div>
+        <div class="planchette-wrapper" draggable="true">
+        </div>
+      </div>
+    </div>
     <div class="planchette-cursor"></div>
 </body>
 </html>
