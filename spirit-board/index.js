@@ -8,7 +8,6 @@ import { triviaing } from "./game engine/trivia.js";
 import { triviaAnswer } from "./game engine/triviaanswer.js";
 import { riddling } from "./game engine/riddles.js";
 import { riddleAnswer } from "./game engine/riddleanswer.js";
-// import { nextBttnFunc, nextBttnFunc2 } from "./game engine/next.js";
 
 
 
@@ -34,14 +33,9 @@ import { riddleAnswer } from "./game engine/riddleanswer.js";
   nextBttn.style.display = "none";
   nextBttn2.style.display = "none";
 
-
   gameAnswered.addEventListener("click", (e) => {
     gameAnswered.innerText += e.target.textContent;
   });
-
-  // Gaming Engine: //
-
-
 
   // Answer Clearing
 
@@ -50,7 +44,6 @@ import { riddleAnswer } from "./game engine/riddleanswer.js";
       gameAnswered.innerHTML = "";
     }
   });
-
 
   // Spirit timer section. Begins game and freezes page once time runs out: //
 
