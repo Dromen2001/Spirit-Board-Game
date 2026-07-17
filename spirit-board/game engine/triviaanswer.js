@@ -2,8 +2,10 @@ import { triviaQuestions } from "../data/gameData.js";
 import { gameAnswered, multiChoice, multiOptions, nextBttn2 } from "../gaming.js";
 import { spiritAM } from "../placement.js";
 import { controller2 } from "./controllers.js";
+import { riddling } from "./riddles.js";
 import { triviaing } from "./trivia.js";
 
+let nextQuestion = 0;
 let answering = 0;
 let seconds_left = 300;
 
@@ -38,12 +40,12 @@ export const triviaAnswer = () => {
   };
 
   const nextBttnFunc2 = () => {
-      if (answering === 6) {
+      if (answering === 5) {
         nextBttn2.style.display = "block";
       }
       nextBttn2.addEventListener("click", () => {
         gameAnswered.innerHTML = "";
-        riddling();
+        riddling((nextQuestion = 0), (answering = 0));
         nextBttn2.style.display = "none";
         seconds_left += 25;
         multiChoice.style.display = "none";

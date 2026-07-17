@@ -1,12 +1,14 @@
 import { spiritChoice } from "../placement.js";
 import { controller1 } from "./controllers.js";
 import { trueOrFalse } from "../data/gameData.js";
-import { gameAnswered, nextBttn } from "../gaming.js";
+import { gameAnswered, gameQuestion, nextBttn } from "../gaming.js";
 import { trueFalsing } from "./truefalse.js";
 import { triviaing } from "./trivia.js";
+import { triviaAnswer } from "./triviaanswer.js";
 
+let nextQuestion = 0;
 let answering = 0;
-let seconds_left = 300;
+let seconds_left = "";
 
 
 export const trueFalseAnswering = () => {
@@ -32,11 +34,12 @@ export const trueFalseAnswering = () => {
   };
 
   const nextBttnFunc = () => {
-      if (answering === 13) {
+      if (answering === 12) {
         nextBttn.style.display = "block";
       }
       nextBttn.addEventListener("click", (e) => {
         gameAnswered.innerHTML = "";
+        gameQuestion.innerHTML = "";
         triviaing();
         nextBttn.style.display = "none";
         seconds_left += 15;

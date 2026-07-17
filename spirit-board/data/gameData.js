@@ -2,6 +2,8 @@
 
   // The True or False:
 
+  
+
   export const trueOrFalse = [
     {
       statement: "The first Jack-o'-Lanterns were carved out of turnips.",
@@ -110,13 +112,6 @@
         answer: "FALSE. It\’s from Shakespeare\’s Macbeth.",
       },
     },
-    {
-      statement: "",
-      answers: {
-        true: true,
-        answer: "",
-      },
-    },
   ];
 
   // The Trivia:
@@ -125,11 +120,11 @@
     {
       triviaQuestion:
         "How many times was Tony Todd stung by bees while making Candyman?",
-      multipleChoice: [
-        { id: "A", questionnaire: "25" },
-        { id: "B", questionnaire: "27" },
-        { id: "C", questionnaire: "17" },
-      ],
+      multipleChoice: {
+        A: "25",
+        B: "27",
+        C: "17",
+      },
       answers: {
         B: true,
       },
@@ -137,11 +132,11 @@
     {
       triviaQuestion:
         "What was the biggest clue in Scream, telling you which killer was who?",
-      multipleChoice: [
-        { id: "A", questionnaire: "The Phone Calls" },
-        { id: "B", questionnaire: "The mask" },
-        { id: "C", questionnaire: "The way they held their knives" },
-      ],
+      multipleChoice: {
+        A: "The Phone Calls",
+        B: "The mask",
+        C: "The way they held their knives",
+      },
       answers: {
         C: true,
       },
@@ -149,23 +144,11 @@
     {
       triviaQuestion:
         'What fueled Robert Englund\'s performance the most in the first "A Nightmare on Elm Street" movie?',
-      multipleChoice: [
-        {
-          id: "A",
-          questionnaire:
-            "How much he hated being in the make up chair for long periods of time.",
-        },
-        {
-          id: "B",
-          questionnaire:
-            "He wasn't allowed to interact much the cast and felt isolated.",
-        },
-        {
-          id: "C",
-          questionnaire:
-            "He was jealous of how much less screen time he had compared to his co stars.",
-        },
-      ],
+      multipleChoice: {
+        A: "How much he hated being in the make up chair for long periods of time.",
+        B: "He wasn't allowed to interact much the cast and felt isolated.",
+        C: "He was jealous of how much less screen time he had compared to his co stars.",
+      },
       answers: {
         A: true,
       },
@@ -173,11 +156,11 @@
     {
       triviaQuestion:
         'In The Shining, Jack Nicholson had a particular form of training, that caused the set crew to keep making thicker doors for the "Here\'s Johnny" scene.',
-      multipleChoice: [
-        { id: "A", questionnaire: "He had been training to for a triathalon." },
-        { id: "B", questionnaire: "He was a volunteer Marshall." },
-        { id: "C", questionnaire: "He had been strength training." },
-      ],
+      multipleChoice: {
+        A: "He had been training to for a triathalon.",
+        B: "He was a volunteer Marshall.",
+        C: "He had been strength training.",
+      },
       answers: {
         B: true,
       },
@@ -185,39 +168,29 @@
     {
       triviaQuestion:
         "In the first Resident Evil movie, the SFX artist had some weird issues with the dogs. What was it?",
-      multipleChoice: [
-        {
-          id: "A",
-          questionnaire: "They kept being too excited to see everyone.",
-        },
-        {
-          id: "B",
-          questionnaire:
-            "They kept licking the meat and fake blood off of themselves.",
-        },
-        {
-          id: "C",
-          questionnaire: "They kept being too aggresive with the team.",
-        },
-      ],
+      multipleChoice: {
+        A: "They kept being too excited to see everyone.",
+        B: "They kept licking the meat and fake blood off of themselves.",
+        C: "They kept being too aggresive with the team.",
+      },
       answers: {
         B: true,
       },
     },
     {
       triviaQuestion: 'Which movie did the term "Groovy!" come from?',
-      multipleChoice: [
-        { id: "A", questionnaire: "Army of Darkness" },
-        { id: "B", questionnaire: "They Live" },
-        { id: "C", questionnaire: "Evil Dead 2" },
-      ],
+      multipleChoice: {
+        A: "Army of Darkness",
+        B: "They Live",
+        C: "Evil Dead 2",
+      },
       answers: {
         C: true,
       },
     },
     {
       triviaQuestion: [""],
-      multiChoice: [""],
+      multiChoice: {},
       answers: {
         next: true,
       },

@@ -10,9 +10,14 @@ export const triviaing = () => {
     triviaAnswer()
     multiChoice.removeAttribute("hidden");
     multiChoice.innerText = triviaQuestions[nextQuestion].triviaQuestion;
-    multiOptions.innerHTML = triviaQuestions[choices].multipleChoice
-      ?.map((choice) => `<li>${choice.id}:  ${choice.questionnaire}</li>`)
-      .join("");
+    const distractors = triviaQuestions[choices].multipleChoice;
+    let choice = "";
+    for (const [key, value] of Object.entries(distractors)) {
+      console.log(`${key}: ${value}`);
+      return choice;
+      choice += `<li>${key}: ${value}</li>`; 
+    }
+    multiOptions.innerHTML = choice;
     nextQuestion++;
     choices++;
   };
