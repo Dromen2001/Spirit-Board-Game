@@ -1,5 +1,5 @@
 import { spiritChoice } from "../placement.js";
-import { controller1 } from "./controllers.js";
+// import { controller1 } from "./controllers.js";
 import { trueOrFalse } from "../data/gameData.js";
 import { gameAnswered, gameQuestion, nextBttn } from "../gaming.js";
 import { trueFalsing } from "./truefalse.js";
@@ -9,6 +9,7 @@ import { triviaAnswer } from "./triviaanswer.js";
 let nextQuestion = 0;
 let answering = 0;
 let seconds_left = "";
+const controller1 = new AbortController();
 
 
 export const trueFalseAnswering = () => {
@@ -40,7 +41,7 @@ export const trueFalseAnswering = () => {
       nextBttn.addEventListener("click", (e) => {
         gameAnswered.innerHTML = "";
         gameQuestion.innerHTML = "";
-        triviaing();
+        triviaing(triviaAnswer());
         nextBttn.style.display = "none";
         seconds_left += 15;
         controller1.abort();

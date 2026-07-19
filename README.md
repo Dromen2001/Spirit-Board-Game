@@ -31,3 +31,9 @@ What are the same components of every section.
 - timer 
 - title
 - background image
+
+
+
+## code notes
+element.append(node)
+node can be a string or an HTMLElement, such as “<div>content<div>”, or document.createElement('div')

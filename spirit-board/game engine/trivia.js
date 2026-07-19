@@ -7,17 +7,17 @@ let choices = 0;
 
 
 export const triviaing = () => {
-    triviaAnswer()
+    // triviaAnswer()
     multiChoice.removeAttribute("hidden");
     multiChoice.innerText = triviaQuestions[nextQuestion].triviaQuestion;
     const distractors = triviaQuestions[choices].multipleChoice;
     let choice = "";
-    for (const [key, value] of Object.entries(distractors)) {
-      console.log(`${key}: ${value}`);
-      return choice;
-      choice += `<li>${key}: ${value}</li>`; 
+    for (const [key, value] of Object.entries(triviaQuestions[choices].multipleChoice)) {
+      choice = document.createElement("li");
+      choice.innerText = `${key}: ${value}`;
+      console.log(choice);
+      multiOptions.append(choice);
     }
-    multiOptions.innerHTML = choice;
     nextQuestion++;
     choices++;
   };

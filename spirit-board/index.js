@@ -1,7 +1,7 @@
 import { yesNo, AToM, NToZ, boardNum, helloGoodbye} from "./data/boardData.js";
 import { trueOrFalse, triviaQuestions, theRiddles} from "./data/gameData.js";
 import { spiritGamingBuild, gameQuestion, gameAnswered, startBttn, nextBttn, nextBttn2, trueFalse, multiChoice, multiOptions, riddleQuestion } from "./gaming.js";
-import { spiritChoice, spiritAM, spiritNZ, spiritNum, spiritSalutation, agreeDiv, alpha1Div, alpha2Div, numbersDiv, saluDiv } from "./placement.js";
+import { spiritChoice, spiritAM, spiritNZ, spiritNum, spiritSalutation } from "./placement.js";
 import { trueFalsing } from "./game engine/truefalse.js";
 import { trueFalseAnswering } from "./game engine/tfanswer.js";
 import { triviaing } from "./game engine/trivia.js";
@@ -13,7 +13,7 @@ import { riddleAnswer } from "./game engine/riddleanswer.js";
 
   // Spirit main game play functionaltiy: //
   // Game Header:
-
+  const mainSpiritPage = document.querySelector(".main-spirit-page")
   const spiritTimer = document.querySelector(".spirit-timer");
   const spiritRuleMain = document.querySelector(".spirit-rule-main");
   const spiritRules = document.querySelector(".spirit-rules");
