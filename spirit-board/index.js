@@ -56,8 +56,8 @@ import { riddleAnswer } from "./game engine/riddleanswer.js";
 
     // Begin game:
 
-    trueFalsing(trueFalseAnswering());
-    // triviaing(triviaAnswer());
+    // trueFalsing(trueFalseAnswering());
+    triviaing(triviaAnswer());
     // riddling(riddleAnswer());
 
     // Timer Build:

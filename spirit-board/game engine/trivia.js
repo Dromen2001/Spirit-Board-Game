@@ -7,10 +7,9 @@ let choices = 0;
 
 
 export const triviaing = () => {
-    // triviaAnswer()
+    triviaAnswer()
     multiChoice.removeAttribute("hidden");
     multiChoice.innerText = triviaQuestions[nextQuestion].triviaQuestion;
-    const distractors = triviaQuestions[choices].multipleChoice;
     let choice = "";
     for (const [key, value] of Object.entries(triviaQuestions[choices].multipleChoice)) {
       choice = document.createElement("li");

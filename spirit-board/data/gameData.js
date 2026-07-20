@@ -112,6 +112,9 @@
         answer: "FALSE. It\’s from Shakespeare\’s Macbeth.",
       },
     },
+    {
+      statement: "",
+    },
   ];
 
   // The Trivia:

@@ -1,13 +1,14 @@
 import { triviaQuestions } from "../data/gameData.js";
 import { gameAnswered, multiChoice, multiOptions, nextBttn2 } from "../gaming.js";
 import { spiritAM } from "../placement.js";
-import { controller2 } from "./controllers.js";
+// import { controller2 } from "./controllers.js";
 import { riddling } from "./riddles.js";
 import { triviaing } from "./trivia.js";
 
 let nextQuestion = 0;
 let answering = 0;
 let seconds_left = 300;
+const controller2 = new AbortController();
 
 
 export const triviaAnswer = () => {
@@ -27,6 +28,7 @@ export const triviaAnswer = () => {
           triviaQuestions[answering]?.answers[e.target.textContent]
         ) {
           gameAnswered.innerHTML = "";
+          multiOptions.innerText = "";
           triviaing();
           console.log(gameAnswered);
           answering++;

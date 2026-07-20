@@ -41,7 +41,7 @@ export const trueFalseAnswering = () => {
       nextBttn.addEventListener("click", (e) => {
         gameAnswered.innerHTML = "";
         gameQuestion.innerHTML = "";
-        triviaing(triviaAnswer());
+        triviaing();
         nextBttn.style.display = "none";
         seconds_left += 15;
         controller1.abort();
