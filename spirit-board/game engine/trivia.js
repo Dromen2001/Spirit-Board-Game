@@ -4,8 +4,6 @@ import { triviaAnswer } from "./triviaanswer.js";
 let nextQuestion = 0;
 let choices = 0;
 
-
-
 export const triviaing = () => {
     triviaAnswer()
     multiChoice.removeAttribute("hidden");

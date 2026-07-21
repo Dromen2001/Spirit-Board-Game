@@ -22,6 +22,7 @@ import { riddleAnswer } from "./game engine/riddleanswer.js";
 
   const spiritBuild = document.querySelector("#spirit-build");
   const spiritBoardBuild = document.querySelector(".spirit-board-build");
+  const gameTyping = document.querySelector(".game-typing");
   const spiritFunction = document.querySelector(".spirit-function");
 
   // Planchette:
@@ -33,9 +34,7 @@ import { riddleAnswer } from "./game engine/riddleanswer.js";
   nextBttn.style.display = "none";
   nextBttn2.style.display = "none";
 
-  gameAnswered.addEventListener("click", (e) => {
-    gameAnswered.innerText += e.target.textContent;
-  });
+  
 
   // Answer Clearing
 
@@ -53,11 +52,14 @@ import { riddleAnswer } from "./game engine/riddleanswer.js";
     gameQuestion.removeAttribute("hidden");
     startBttn.style.display = "none";
     spiritRuleMain.style.display = "none";
+    gameTyping.addEventListener("click", (e) => {
+      gameAnswered.innerText += e.target.textContent;
+    });
 
     // Begin game:
 
-    // trueFalsing(trueFalseAnswering());
-    triviaing(triviaAnswer());
+    trueFalsing(trueFalseAnswering());
+    // triviaing(triviaAnswer());
     // riddling(riddleAnswer());
 
     // Timer Build:

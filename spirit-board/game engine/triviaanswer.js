@@ -47,11 +47,11 @@ export const triviaAnswer = () => {
       }
       nextBttn2.addEventListener("click", () => {
         gameAnswered.innerHTML = "";
-        riddling((nextQuestion = 0), (answering = 0));
         nextBttn2.style.display = "none";
-        seconds_left += 25;
         multiChoice.style.display = "none";
         multiOptions.style.display = "none";
+        riddling();
+        seconds_left += 25;
         controller2.abort();
       });
     };
